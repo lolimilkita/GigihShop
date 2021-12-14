@@ -1,0 +1,19 @@
+.navbar {
+    box-shadow: 0 8px 24px -6px rgba(153, 153, 153, 0.603);
+    /* the rest of your styling */
+    font-size: large;
+    background: white;
+}
+
+a.nav-item.nav-link {
+    color: black;
+}
+
+a#btn-keranjang {
+    background: orange;
+    padding: 2px 10px;
+    margin-left: 1rem;
+    border-radius: 6px;
+    text-decoration: none;
+    color: white;
+}
