@@ -7,3 +7,7 @@ Tugas kelompok 5 PPPL, Upwork Tech Team
 Client Century 21 Prima Arcade Bintaro
 
 <img src="https://github.com/lolimilkita/Project-Website-UpworkTeam/blob/main/img_readme/century_21_monogram%201.png" width="250px" height="auto">
+
+# Perkembangan 
+1. First Commit
+<img src="https://github.com/lolimilkita/Project-Website-UpworkTeam/blob/Developer/img_readme/2021-12-14.png">
