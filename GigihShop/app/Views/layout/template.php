@@ -14,9 +14,9 @@
     <title><?= $title; ?></title>
   </head>
   <body>
-      <?= $this->include('layout/navbar'); ?>
+    <?= $this->include('layout/navbar'); ?>
 
-   <?= $this->renderSection('content'); ?> 
+    <?= $this->renderSection('content'); ?> 
 
     <!-- Optional JavaScript; choose one of the two! -->
 
