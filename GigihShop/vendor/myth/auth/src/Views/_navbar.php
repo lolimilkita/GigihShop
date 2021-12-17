@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="/css/styleNavbar.css">
-<nav class="navbar navbar-expand-lg">
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
   <div class="container">
     <a class="navbar-brand" href="<?= base_url('/'); ?>">
       <img src="\img\logo.png" width="120" height="40">
@@ -10,7 +10,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">            
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <a class="nav-item nav-link" href="<?= base_url('/pages/about'); ?>">Kontak</a>
-        <a class="nav-item nav-link" href="/orang">Barang</a>
+        <a class="nav-item nav-link" href="/barang">Barang</a>
       </ul>
       <form class="d-flex">
         <a id="btn-keranjang">

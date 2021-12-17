@@ -12,9 +12,9 @@
     <link rel="stylesheet" href="/css/style.css">
 
     <title><?= $title; ?></title>
+    <?= $this->include('Myth\Auth\Views\_navbar'); ?>
   </head>
   <body>
-    <?= $this->include('Myth\Auth\Views\_navbar'); ?>
 
     <?= $this->renderSection('content'); ?> 
 

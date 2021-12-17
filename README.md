@@ -12,6 +12,9 @@ Client Century 21 Prima Arcade Bintaro
 1. First Commit
 <img src="https://github.com/lolimilkita/Project-Website-UpworkTeam/blob/Developer/img_readme/2021-12-14.png">
 
+2. Update UI Login Register ResetPW (18-12-21)
+<img src="https://github.com/lolimilkita/Project-Website-UpworkTeam/blob/Developer/img_readme/2021-12-18.png">
+
 # Catatan
 1. file env seharusnya tidak bisa di commit ke git, jadi saya buat dua file env yang ini_env.txt merupakan env yang saya gunakan guys.
 

@@ -12,9 +12,11 @@
     <link rel="stylesheet" href="/css/style.css">
 
     <title><?= $title; ?></title>
+    
+    <?= $this->include('layout/navbar'); ?>
   </head>
   <body>
-    <?= $this->include('layout/navbar'); ?>
+
 
     <?= $this->renderSection('content'); ?> 
 
