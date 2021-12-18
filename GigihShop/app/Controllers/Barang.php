@@ -32,7 +32,7 @@ class Barang extends BaseController
             'currentPage' => $currentPage
         ];
 
-        return view('orang/index', $data);
+        return view('barang/index', $data);
     }
 
 } 
