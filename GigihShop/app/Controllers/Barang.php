@@ -35,4 +35,4 @@ class Barang extends BaseController
         return view('barang/index', $data);
     }
 
-} 
+}

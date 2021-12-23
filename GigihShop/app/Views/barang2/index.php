@@ -28,17 +28,59 @@
             </div>
 
             <nav id="nav-tabs-barang">
-                <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                    <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-selected="true">Barang 1</button>
-                    <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-selected="false">Barang 2</button>
-                    <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-selected="false">Barang 3</button>
-                </div>
+              <ul class="nav nav-tabs" id="nav-tab" role="tablist">
+                <li class="nav-item">
+                  <a class="nav-link active" id="nav-home-tab" data-bs-target="#nav-home" role="tab" aria-selected="true" href="">Kategori 1</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id="nav-profile-tab" data-bs-target="#nav-profile" role="tab" aria-selected="false" href="/barang2/kategori2">Kategori 2</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id="nav-contact-tab" data-bs-target="#nav-contact" role="tab" aria-selected="false" href="/barang2/kategori3">kategori 3</a>
+                </li>
+              </ul>
             </nav>
             <div class="tab-content" id="nav-tabContent">
-                <div class="tab-pane fade show active" id="nav-home" role="tabpanel" ><?= $this->include('kategori/kategori1'); ?></div>
-                <div class="tab-pane fade" id="nav-profile" role="tabpanel" ><?= $this->include('kategori/kategori2'); ?></div>
-                <div class="tab-pane fade" id="nav-contact" role="tabpanel" ><?= $this->include('kategori/kategori3'); ?></div>
+                <div class="tab-pane fade show active" id="nav-home" role="tabpanel" >
+                    <?php if(session()->getFlashdata('keranjang_tambah')) : ?>
+                        <div class="alert alert-success" role="alert">
+                            <?= session()->getFlashdata('keranjang_tambah'); ?>
+                        </div>
+                    <?php endif; ?>
+                    <div class="row row-cols-1 row-cols-md-3 g-4">
+                        <?php if($kategori1 == null) : ?>
+                        <p>Kosong</p>
+                        <?php else : ?>
+                        <?php foreach($kategori1 as $k) : ?>
+                            <div class="col">
+                            <div class="card h-100">
+                                <img src="/img/barang/<?= $k['gambar']; ?>" class="card-img-top" >
+                                <div class="card-body">
+                                    <h5 class="card-title"><?= $k['nama_barang']; ?></h5>
+                                    <p class="price"><?= $k['harga']; ?></p>
+                                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                    <?php if(logged_in()) : ?>
+                                        <a type="button" class="btn btn-secondary" href="/keranjang/tambah/<?= $k['barang_id']; ?>" >+ Tambah Ke Keranjang</a>
+                                    <?php else : ?>
+                                        <a type="button" class="btn btn-secondary disabled" >+ Tambah Ke Keranjang</a>
+                                        <div class="text-danger d-flex" role="alert">
+                                            <?php echo session()->getFlashdata('not_login') ?>
+                                        </div>
+                                    <?php endif; ?>
+                                </div>
+                            </div>
+                            </div>
+                        <?php endforeach; ?>
+                        <?php endif; ?>
+                    </div>
+                    <div id="pager">
+                        <?= $pager->links('barang', 'barang_pagination'); ?>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="nav-profile" role="tabpanel" ></div>
+                <div class="tab-pane fade" id="nav-contact" role="tabpanel" ></div>
             </div>
+
         </div>
 
     </div>

@@ -6,7 +6,7 @@ Tugas kelompok 5 PPPL, Upwork Tech Team
 # Pembuatan Aplikasi E-Commerce Website 
 Client CV GIGIH Purworejo
 
-<img src="https://github.com/lolimilkita/Project-Website-UpworkTeam/blob/main/img_readme/logo_cvgigih.png" width="250px" height="auto">
+<img src="https://github.com/lolimilkita/Project-Website-UpworkTeam/blob/Developer/img_readme/logo_cvgigih.png" width="250px" height="auto">
 
 # Perkembangan 
 1. First Commit

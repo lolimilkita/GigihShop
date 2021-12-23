@@ -19,10 +19,11 @@
         <?php else : ?>
           <a class="btn btn-outline-success" href="/login">Login</a>
         <?php endif; ?>
-        <a id="btn-keranjang">
+        <a id="btn-keranjang" href="/keranjang">
           <img src="/img/cart.png" alt="">
-          <!-- <?php $totalBarang = 1; ?>
-          <?php	if($totalBarang != 0){ echo "<span class='total-barang'>$totalBarang</span>"; } ?> -->
+          <?php if(session()->getTempdata('jml_keranjang')) : ?>
+            <span class='total-barang'><?= session()->getTempdata('jml_keranjang'); ?></span>
+          <?php endif; ?>
         </a>
       </form>
     </div>
