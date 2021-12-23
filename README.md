@@ -19,6 +19,9 @@ Client CV GIGIH Purworejo
 <img src="https://github.com/lolimilkita/Project-Website-UpworkTeam/blob/Developer/img_readme/tabs1.png">
 <img src="https://github.com/lolimilkita/Project-Website-UpworkTeam/blob/Developer/img_readme/tabs2.png">
 
+4. Update Pagination dan cart
+<img src="https://github.com/lolimilkita/Project-Website-UpworkTeam/blob/Developer/img_readme/empat.png">
+
 # Catatan
 1. file env seharusnya tidak bisa di commit ke git, jadi saya buat dua file env yang ini_env.txt merupakan env yang saya gunakan guys.
 
