@@ -106,3 +106,15 @@ table > tbody > tr > * {
 .total-barang {
     font-size: medium;
 }
+
+#cardKeranjang {
+    border-radius: 20px;
+    padding-top: 2rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 2rem;
+}
+
+.sampul {
+    width: 80px;
+}

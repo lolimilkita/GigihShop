@@ -33,6 +33,11 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Pages::index');
 
+$routes->get('/keranjang/tambah/(:num)', 'Keranjang::tambah/$1');
+$routes->delete('/keranjang/(:num)', 'Keranjang::delete/$1');
+$routes->get('/keranjang/detail/(:any)', 'Keranjang::detail/$1');
+$routes->get('/keranjang/delete/(:num)', 'Keranjang::fucku/$1');
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing

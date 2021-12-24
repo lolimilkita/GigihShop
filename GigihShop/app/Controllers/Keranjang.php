@@ -17,12 +17,22 @@ class Keranjang extends BaseController
 
     public function index()
     {
+        $userId = user()->id;
+
+        $keranjang = $this->keranjangModel->where('users_id', $userId)->findAll();
     
         $data = [
             'title' => 'Daftar Keranjang',
+            'keranjang' => $keranjang
         ];
 
-        return view('keranjang/index', $data);
+        if (logged_in()) {
+            return view('keranjang/index', $data);
+        } else {
+            session()->setFlashdata('error', 'Silahkan login terlebih dahulu');
+            return redirect()->to('/login');
+        }
+
     }
 
     public function tambah($barang_id)
@@ -31,7 +41,8 @@ class Keranjang extends BaseController
         $barang = $this->barangModel->getBarang($barang_id);
 
         $userId = user()->id;
-
+        
+        
         $this->keranjangModel->save([
             'users_id' => $userId,
             'barang_id' => $barang['barang_id'],
@@ -40,8 +51,7 @@ class Keranjang extends BaseController
             'gambar' => $barang['gambar'],
             'harga_barang' => $barang['harga']
         ]);
-
-        $userId = user()->id;
+        
         $keranjang = $this->keranjangModel->where('users_id', $userId)->findAll();
         $jmlKeranjang = count($keranjang);
 
@@ -56,6 +66,23 @@ class Keranjang extends BaseController
 
         return redirect()->to('barang2/index');
         // return view('/');
+    }
+
+    public function delete($id) 
+    {
+        
+        $this->keranjangModel->delete($id);
+
+        return redirect()->to('/keranjang');
+    }
+
+    public function detail($id)
+    {
+        $keranjang = $this->keranjangModel->getKeranjang($id);
+
+        var_dump($keranjang);
+
+        return view('keranjang/detail');
     }
 
 }

@@ -8,7 +8,7 @@
 
 			<div class="card-group" id="cardLogin">
 
-				<div class="card  border-0 justify-content-center" id="cardImgLogin">
+				<div class="card  border-0" id="cardImgLogin">
 					<figure id="figure"><img src="/img/Saly-38.png" class="img-fluid" id="imgLogin"></figure>
 				</div>
 

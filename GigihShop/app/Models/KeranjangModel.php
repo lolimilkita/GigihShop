@@ -10,4 +10,12 @@ class KeranjangModel extends Model
     protected $useTimestamps = true;
     protected $allowedFields = ['users_id', 'barang_id', 'nama_barang', 'spesifikasi', 'gambar', 'harga_barang'];
     
+    public function getKeranjang($id = false)
+    {
+        if($id == false){
+            return $this->findAll();
+        }
+
+        return $this->where(['id' => $id])->first();
+    }
 }

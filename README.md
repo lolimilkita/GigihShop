@@ -19,6 +19,13 @@ Client CV GIGIH Purworejo
 <img src="https://github.com/lolimilkita/Project-Website-UpworkTeam/blob/Developer/img_readme/tabs1.png">
 <img src="https://github.com/lolimilkita/Project-Website-UpworkTeam/blob/Developer/img_readme/tabs2.png">
 
+4. Update Pagination dan cart
+<img src="https://github.com/lolimilkita/Project-Website-UpworkTeam/blob/Developer/img_readme/empat.png">
+
+Menambahkan http method spoofing jadi tidak bisa hapus data keranjang dari http untuk user yg sudah login maupun belum
+
+<img src="https://github.com/lolimilkita/Project-Website-UpworkTeam/blob/Developer/img_readme/empat_1.png">
+
 # Catatan
 1. file env seharusnya tidak bisa di commit ke git, jadi saya buat dua file env yang ini_env.txt merupakan env yang saya gunakan guys.
 
