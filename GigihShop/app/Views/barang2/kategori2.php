@@ -5,6 +5,21 @@
     <div class="row">
         <div class="col">
 
+          <?php 
+            function rupiah($angka){
+                $hasil_rupiah = "Rp " . number_format($angka,2,',','.');
+                return $hasil_rupiah;
+            }
+          ?>
+
+          <?php 
+            function textWrap($text) {
+                $showSort = substr($text, 0, 101);
+                $hasil = $showSort . "..";
+                return $hasil;
+            }
+          ?>
+
             <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
@@ -54,8 +69,17 @@
                           <img src="/img/barang/<?= $k['gambar']; ?>" class="card-img-top" >
                           <div class="card-body">
                             <h5 class="card-title"><?= $k['nama_barang']; ?></h5>
-                            <p class="price"><?= $k['harga']; ?></p>
-                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            <p class="price">
+                              <?php 
+                                echo rupiah($k['harga4']);
+                                echo (" (1/2 Pickup)");
+                              ?>
+                            </p>
+                            <p>
+                              <?php
+                                echo textWrap($k['deskripsi']);
+                              ?>
+                            </p>
                             <?php if(logged_in()) : ?>
                               <a type="button" class="btn btn-secondary" href="/keranjang/tambah/<?= $k['barang_id']; ?>" >+ Tambah Ke Keranjang</a>
                             <?php else : ?>

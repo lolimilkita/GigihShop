@@ -8,6 +8,7 @@ use CodeIgniter\HTTP\IncomingRequest;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use Psr\Log\LoggerInterface;
+use App\Models\KeranjangModel;
 
 /**
  * Class BaseController
@@ -49,5 +50,9 @@ class BaseController extends Controller
 
         // E.g.: $this->session = \Config\Services::session();
         session();
+        $this->keranjangModel = new KeranjangModel();
+        $this->userId = user()->id;
+        $keranjang = $this->keranjangModel->where('users_id', $this->userId)->findAll();
+        $this->jmlKeranjang = count($keranjang);
     }
 }

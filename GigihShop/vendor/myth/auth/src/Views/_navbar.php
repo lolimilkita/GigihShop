@@ -11,12 +11,18 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <a class="nav-item nav-link" href="<?= base_url('/pages/about'); ?>">Kontak</a>
         <a class="nav-item nav-link" href="/barang">Barang</a>
+        <a class="nav-item nav-link" href="/barang2">Barang2</a>
       </ul>
       <form class="d-flex">
-        <a id="btn-keranjang">
+        <a class="btn btn-outline-secondary" href="/login">Login</a>
+        <a id="btn-keranjang" class="btn position-relative" href="/keranjang">
           <img src="/img/cart.png" alt="">
-          <!-- <?php $totalBarang = 1; ?>
-          <?php	if($totalBarang != 0){ echo "<span class='total-barang'>$totalBarang</span>"; } ?> -->
+          <?php if(session()->get('jml_keranjang')) : ?>
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+              <?= session()->get('jml_keranjang'); ?>
+              <span class="visually-hidden">unread messages</span>
+            </span>
+          <?php endif; ?>
         </a>
       </form>
     </div>

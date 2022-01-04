@@ -5,6 +5,21 @@
     <div class="row">
         <div class="col">
 
+            <?php 
+                function rupiah($angka){
+                    $hasil_rupiah = "Rp " . number_format($angka,2,',','.');
+                    return $hasil_rupiah;
+                }
+            ?>
+
+            <?php 
+                function textWrap($text) {
+                    $showSort = substr($text, 0, 101);
+                    $hasil = $showSort . "..";
+                    return $hasil;
+                }
+            ?>
+
             <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
@@ -51,26 +66,39 @@
                         <?php if($kategori1 == null) : ?>
                         <p>Kosong</p>
                         <?php else : ?>
-                        <?php foreach($kategori1 as $k) : ?>
-                            <div class="col">
-                            <div class="card h-100">
-                                <img src="/img/barang/<?= $k['gambar']; ?>" class="card-img-top" >
-                                <div class="card-body">
-                                    <h5 class="card-title"><?= $k['nama_barang']; ?></h5>
-                                    <p class="price"><?= $k['harga']; ?></p>
-                                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                    <?php if(logged_in()) : ?>
-                                        <a type="button" class="btn btn-secondary" href="/keranjang/tambah/<?= $k['barang_id']; ?>" >+ Tambah Ke Keranjang</a>
-                                    <?php else : ?>
-                                        <a type="button" class="btn btn-secondary disabled" >+ Tambah Ke Keranjang</a>
-                                        <div class="text-danger d-flex" role="alert">
-                                            <?php echo session()->getFlashdata('not_login') ?>
-                                        </div>
-                                    <?php endif; ?>
+                            <?php foreach($kategori1 as $k) : ?>
+                                <div class="col">
+                                <div class="card h-100">
+                                    <img src="/img/barang/<?= $k['gambar']; ?>" class="card-img-top" >
+                                    <div class="card-body">
+                                        <h5 class="card-title"><?= $k['nama_barang']; ?></h5>
+                                        <p class="price">
+                                            <?php 
+                                                if ($k['harga1'] == 0) {
+                                                    echo ("Tidak ada harga per kiloan");
+                                                } else {
+                                                    echo rupiah($k['harga1']);
+                                                    echo (" (1KG)");
+                                                }
+                                            ?>
+                                        </p>
+                                        <p>
+                                            <?php
+                                                echo textWrap($k['deskripsi']);
+                                            ?>
+                                        </p>
+                                        <?php if(logged_in()) : ?>
+                                            <a type="button" class="btn btn-secondary" href="/keranjang/tambah/<?= $k['barang_id']; ?>" >+ Tambah Ke Keranjang</a>
+                                        <?php else : ?>
+                                            <a type="button" class="btn btn-secondary disabled" >+ Tambah Ke Keranjang</a>
+                                            <div class="text-danger d-flex" role="alert">
+                                                <?php echo session()->getFlashdata('not_login') ?>
+                                            </div>
+                                        <?php endif; ?>
+                                    </div>
                                 </div>
-                            </div>
-                            </div>
-                        <?php endforeach; ?>
+                                </div>
+                            <?php endforeach; ?>
                         <?php endif; ?>
                     </div>
                     <div id="pager">
