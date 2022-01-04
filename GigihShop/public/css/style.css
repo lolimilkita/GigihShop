@@ -65,6 +65,25 @@ table > tbody > tr > * {
     border-radius: 20px;
 }
 
+#cardKrj {
+    border-radius: 20px;
+    box-shadow: 0px 24px 46px -4px rgba(0, 0, 0, 0.18);
+}
+
+#cardKrj #cardKeranjangDetail {
+    border-radius: 20px;
+    margin: 18px;
+}
+
+#cardKrj #cardKeranjangDetail #img {
+    border-radius: 18px;
+}
+
+#cardKrj #cardInputLogin {
+    border-radius: 20px;
+    padding: 2rem;
+}
+
 #cardLogin #cardImgLogin #figure {
     display: flex;
     padding: 2rem;
@@ -72,7 +91,6 @@ table > tbody > tr > * {
 
 #cardLogin #cardImgLogin #figure #imgLogin {
     display: flex;
-    
 }
 
 #nav-tabs-barang {
@@ -115,6 +133,12 @@ table > tbody > tr > * {
     padding-bottom: 2rem;
 }
 
-.sampul {
-    width: 80px;
+#accordionDetailBarang {
+    border-radius: 20px;
+}
+
+#imgBerhasil {
+    width: 100%;
+    height: auto;
+    max-width: 460px;
 }

@@ -8,11 +8,11 @@
 
 			<div class="card-group" id="cardLogin">
 
-				<div class="card  border-0" id="cardImgLogin">
+				<div class="card border-0" id="cardImgLogin">
 					<figure id="figure"><img src="/img/Saly-38.png" class="img-fluid" id="imgLogin"></figure>
 				</div>
 
-				<div class="card  border-0" id="cardInputLogin">
+				<div class="card border-0" id="cardInputLogin">
 					<h2 class="card-header" id="cardHeaderLogin"><?=lang('Auth.loginTitle')?></h2>
 					<div class="card-body">
 

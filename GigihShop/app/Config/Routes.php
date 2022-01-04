@@ -35,7 +35,7 @@ $routes->get('/', 'Pages::index');
 
 $routes->get('/keranjang/tambah/(:num)', 'Keranjang::tambah/$1');
 $routes->delete('/keranjang/(:num)', 'Keranjang::delete/$1');
-$routes->get('/keranjang/detail/(:any)', 'Keranjang::detail/$1');
+$routes->get('/keranjang/detail/(:num)', 'Keranjang::detail/$1');
 $routes->get('/keranjang/delete/(:num)', 'Keranjang::fucku/$1');
 
 /*

@@ -15,14 +15,29 @@
       </ul>
       <form class="d-flex">
         <?php if(logged_in()) : ?>
-          <a class="btn btn-outline-success" href="/logout">Logout</a>
+          <!-- <a class="btn btn-outline-secondary" href="/logout">Logout</a> -->
+          <div class="btn-group">
+            <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="bi bi-person-circle"></i>
+              
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Profil</a></li>
+              <li><a class="dropdown-item" href="/pesanan">Pesanan</a></li>
+              <li><a class="dropdown-item" href="/logout">Keluar</a></li>
+            </ul>
+          </div>
+          
         <?php else : ?>
-          <a class="btn btn-outline-success" href="/login">Login</a>
+          <a class="btn btn-outline-secondary" href="/login">Login</a>
         <?php endif; ?>
-        <a id="btn-keranjang" href="/keranjang">
+        <a id="btn-keranjang" class="btn position-relative" href="/keranjang">
           <img src="/img/cart.png" alt="">
-          <?php if(session()->getTempdata('jml_keranjang')) : ?>
-            <span class='total-barang'><?= session()->getTempdata('jml_keranjang'); ?></span>
+          <?php if(session()->get('jml_keranjang')) : ?>
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+              <?= session()->get('jml_keranjang'); ?>
+              <span class="visually-hidden">unread messages</span>
+            </span>
           <?php endif; ?>
         </a>
       </form>

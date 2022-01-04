@@ -2,23 +2,14 @@
 
 namespace App\Controllers;
 
-use App\Models\KeranjangModel;
 class Pages extends BaseController
 {
-    protected $barangModel, $keranjangModel;
-    public function __construct()
-    {
-        $this->keranjangModel = new KeranjangModel();
-    }
 
     public function index()
     {
-        $userId = user()->id;
-        $keranjang = $this->keranjangModel->where('users_id', $userId)->findAll();
-        $jmlKeranjang = count($keranjang);
 
         if(logged_in()) :
-            session()->setTempdata('jml_keranjang', $jmlKeranjang);
+            session()->set('jml_keranjang', $this->jmlKeranjang);
         endif;
 
         $data = [
@@ -29,6 +20,10 @@ class Pages extends BaseController
 
     public function about()
     {
+
+        if(logged_in()) :
+            session()->set('jml_keranjang', $this->jmlKeranjang);
+        endif;
         $data = [
             'title' => 'About Me'
         ];

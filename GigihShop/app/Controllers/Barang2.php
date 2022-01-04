@@ -15,7 +15,11 @@ class Barang2 extends BaseController
 
     public function index()
     {
-        
+
+        if(logged_in()) :
+            session()->set('jml_keranjang', $this->jmlKeranjang);
+        endif;
+
         $kategori1 = $this->barangModel->where('kategori_id', 1)->paginate(6, 'barang');
 
         session()->setFlashdata('not_login', 'Silahkan login terlebih dahulu');
@@ -26,7 +30,7 @@ class Barang2 extends BaseController
             'pager' => $this->barangModel->pager
         ];
 
-        return view('barang2/index', $data);
+        return view('/barang2/index', $data);
     }
 
     public function kategori2(){
@@ -37,7 +41,7 @@ class Barang2 extends BaseController
             'kategori2' => $kategori2,
             'pager' => $this->barangModel->pager
         ];
-        return view('barang2/kategori2', $data);
+        return view('/barang2/kategori2', $data);
     }
 
     public function kategori3(){
@@ -48,6 +52,6 @@ class Barang2 extends BaseController
             'kategori3' => $kategori3,
             'pager' => $this->barangModel->pager
         ];
-        return view('barang2/kategori3', $data);
+        return view('/barang2/kategori3', $data);
     }
 }

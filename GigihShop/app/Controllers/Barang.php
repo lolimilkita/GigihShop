@@ -24,6 +24,10 @@ class Barang extends BaseController
             $orang = $this->orangModel;
         }
 
+        if(logged_in()) :
+            session()->set('jml_keranjang', $this->jmlKeranjang);
+        endif;
+
         $data = [
             'title' => 'Daftar Orang',
             // 'orang' => $this->orangModel->findAll()
