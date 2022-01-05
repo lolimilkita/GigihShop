@@ -44,10 +44,10 @@
           <nav id="nav-tabs-barang">
             <ul class="nav nav-tabs" id="nav-tab" role="tablist">
               <li class="nav-item">
-                <a class="nav-link" id="nav-home-tab" data-bs-target="#nav-home" role="tab" aria-selected="false" href="/barang2">Kategori 1</a>
+                <a class="nav-link" id="nav-home-tab" data-bs-target="#nav-home" role="tab" aria-selected="false" href="/barang">Kategori 1</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" id="nav-profile-tab" data-bs-target="#nav-profile" role="tab" aria-selected="false" href="/barang2/kategori2">Kategori 2</a>
+                <a class="nav-link" id="nav-profile-tab" data-bs-target="#nav-profile" role="tab" aria-selected="false" href="/barang/kategori2">Kategori 2</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link active" id="nav-contact-tab" data-bs-target="#nav-contact" role="tab" aria-selected="true" href="">kategori 3</a>

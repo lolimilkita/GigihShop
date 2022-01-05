@@ -33,10 +33,18 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Pages::index');
 
+$routes->get('/admin', 'Admin::index', ['filter' => 'role:admin']);
+$routes->get('/admin/index', 'Admin::index', ['filter' => 'role:admin']);
+
+$routes->get('/admin/barangcreate', 'Admin::barangcreate');
+$routes->get('/admin/barangdetail/(:segment)', 'Admin::barangdetail/$1');
+$routes->delete('/admin/barangdelete/(:num)', 'Admin::barangdelete/$1');
+
 $routes->get('/keranjang/tambah/(:num)', 'Keranjang::tambah/$1');
 $routes->delete('/keranjang/(:num)', 'Keranjang::delete/$1');
 $routes->get('/keranjang/detail/(:num)', 'Keranjang::detail/$1');
 $routes->get('/keranjang/delete/(:num)', 'Keranjang::fucku/$1');
+
 
 /*
  * --------------------------------------------------------------------

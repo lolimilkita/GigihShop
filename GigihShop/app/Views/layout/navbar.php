@@ -10,17 +10,22 @@
     <div class="collapse navbar-collapse" id="navbarNav">            
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <a class="nav-item nav-link" href="<?= base_url('/pages/about'); ?>">Kontak</a>
+        <a class="nav-item nav-link" href="/orang">Orang</a>
         <a class="nav-item nav-link" href="/barang">Barang</a>
-        <a class="nav-item nav-link" href="/barang2">Barang2</a>
+        <?php if(in_groups('admin')) : ?>
+          <a class="nav-item nav-link" href="/admin">Admin</a>
+        <?php endif; ?>
       </ul>
       <form class="d-flex">
         <?php if(logged_in()) : ?>
           <!-- <a class="btn btn-outline-secondary" href="/logout">Logout</a> -->
           <div class="btn-group">
-            <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <span class="mr-2 d-none d-lg-inline">
+                <?= user()->username; ?>
+              </span>
               <i class="bi bi-person-circle"></i>
-              
-            </button>
+            </a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="#">Profil</a></li>
               <li><a class="dropdown-item" href="/pesanan">Pesanan</a></li>
