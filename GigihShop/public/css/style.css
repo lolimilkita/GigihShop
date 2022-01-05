@@ -11,7 +11,15 @@ table > tbody > tr > * {
 }
 
 .sampul {
-    width: 80px;
+    width: 100%;
+    height: auto;
+    max-width: 200px;
+}
+
+.gambarCreate {
+    width: 100%;
+    height: auto;
+    max-width: 240px;
 }
 
 .card .card-body .form-group {
@@ -141,4 +149,23 @@ table > tbody > tr > * {
     width: 100%;
     height: auto;
     max-width: 460px;
+}
+
+#v-pills-barang {
+    border-radius: 20px;
+    background: white;
+    padding: 1rem;
+}
+
+
+@media only screen and (min-width: 600px) {
+    #navsAdmin {
+        display: flex;
+    }
+    
+    #navsAdmin #v-pills-tab {
+        display: flex;
+        flex-direction: column;
+        margin-right: 1rem;
+    }
 }

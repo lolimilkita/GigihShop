@@ -68,7 +68,7 @@ class Keranjang extends BaseController
         // $db->query("INSERT INTO keranjang (users_id, barang_id, nama_barang) VALUES ('$userId', '$barangId', '$barangNama')");
         session()->setFlashdata('keranjang_tambah', 'Data berhasil ditambahkan ke keranjang, periksa keranjang anda pada menu diatas.');
 
-        return redirect()->to('/barang2/index');
+        return redirect()->to('/barang/index');
         // return view('/');
     }
 
