@@ -59,6 +59,12 @@
                                             case 3:
                                                 echo ('Lunas');
                                                 break;
+                                            case 4:
+                                                echo ('Proses pengiriman');
+                                                break;
+                                            case 5:
+                                                echo ('Selesai');
+                                                break;
                                         }
                                     ?>
                                 </td>

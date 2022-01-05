@@ -31,8 +31,8 @@
                                         <th>Nomor Invoice</th>
                                         <td>
                                             <?php
-                                                $date = str_replace('-', '', substr($pesanan[0]['created_at'], 0, 7));
-                                                $noInvoice = 'INV/' . $date . '/' . $pesanan[0]['pesanan_id'];
+                                                $date = str_replace('-', '', substr($pesanan['created_at'], 0, 7));
+                                                $noInvoice = 'INV/' . $date . '/' . $pesanan['pesanan_id'];
                                                 $link = 'https://wa.me/+628529075898?text=Hallo%20saya%20ingin%20nego%20untuk%20transaksi%20dengan%20no%20Invoice%20' . $noInvoice;
                                                 echo ($noInvoice);
                                             ?>
@@ -40,19 +40,19 @@
                                     </tr>
                                     <tr>
                                         <th>Nama Penerima</th>
-                                        <td><?= $pesanan[0]['nama_penerima']; ?></td>
+                                        <td><?= $pesanan['nama_penerima']; ?></td>
                                     </tr>
                                     <tr>
                                         <th>Alamat</th>
-                                        <td><?= $pesanan[0]['alamat']; ?></td>
+                                        <td><?= $pesanan['alamat']; ?></td>
                                     </tr>
                                     <tr>
                                         <th>Nomor Telepon</th>
-                                        <td><?= $pesanan[0]['nomor_telepon']; ?></td>
+                                        <td><?= $pesanan['nomor_telepon']; ?></td>
                                     </tr>
                                     <tr>
                                         <th>Tanggal Pemesanan</th>
-                                        <td><?= substr($pesanan[0]['created_at'], 0, 10); ?></td>
+                                        <td><?= substr($pesanan['created_at'], 0, 10); ?></td>
                                     </tr>
                                     <tr>
                                         <th>Status</th>
@@ -95,35 +95,6 @@
                                         Chat Penjual
                                         <i class="bi bi-whatsapp ms-2"></i>
                                     </button>
-
-                                    <!-- Button trigger modal -->
-                                    <button type="button" class="btn btn-outline-dark mb-3 btn-lg" data-bs-toggle="modal" data-bs-target="#yakinHapus">
-                                        Batalkan Pesanan
-                                        <i class="bi bi-trash"></i>
-                                    </button>
-                                    
-                                    <!-- Modal -->
-                                    <div class="modal fade" id="yakinHapus" tabindex="-1" aria-labelledby="yakinHapusLabel" aria-hidden="true">
-                                      <div class="modal-dialog modal-sm">
-                                        <div class="modal-content border-warning border-2">
-                                          <div class="modal-header border-0">
-                                            <h5 class="modal-title" id="yakinHapusLabel">Peringatan</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                          </div>
-                                          <div class="modal-body">
-                                            Apakah anda yakin ingin menghapus pesanan ini?
-                                          </div>
-                                          <div class="modal-footer border-0">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tidak</button>
-                                            <form action="/pesanan/delete/<?= $pesanan[0]['pesanan_id']; ?>" method="POST" class="d-inline">
-                                                <?= csrf_field(); ?>
-                                                <input type="hidden" name="_method" value="DELETE">
-                                                <button type="submit" class="btn btn-warning">Iya, hapus!</button>
-                                            </form>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
 
                                 </div>
                             </div>

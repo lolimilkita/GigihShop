@@ -38,6 +38,13 @@ Sudah bisa Login dua akun berbeda admin atau user biasa, tambah fitur CRUD data 
 <img src="https://github.com/lolimilkita/Project-Website-UpworkTeam/blob/Developer/img_readme/enam_1.png">
 <img src="https://github.com/lolimilkita/Project-Website-UpworkTeam/blob/Developer/img_readme/enam_2.png">
 
+7. update Fitur-fitur admin (05-01-2022 16:30)
+Sekarang sudah lengkap tinggal merapikan file dummy, ada fitur CRUD Kota, CRUD Banner, Update Status Pesanan
+
+<img src="https://github.com/lolimilkita/Project-Website-UpworkTeam/blob/Developer/img_readme/tujuh_1.png">
+<img src="https://github.com/lolimilkita/Project-Website-UpworkTeam/blob/Developer/img_readme/tujuh_2.png">
+
+
 # Catatan
 1. file env seharusnya tidak bisa di commit ke git, jadi saya buat dua file env yang ini_env.txt merupakan env yang saya gunakan guys.
 

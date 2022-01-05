@@ -64,7 +64,7 @@ class Filters extends BaseConfig
      */
     public $filters = [
         'login' => [
-            'before' => ['barang', 'pesanan'],
+            'before' => ['pesanan', 'admin'],
         ],
     ];
 }

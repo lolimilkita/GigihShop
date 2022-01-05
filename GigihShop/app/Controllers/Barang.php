@@ -2,19 +2,22 @@
 
 namespace App\Controllers;
 
+use App\Models\BannerModel;
 use App\Models\BarangModel;
 use CodeIgniter\Router\Exceptions\RedirectException;
 
 class Barang extends BaseController
 {
-    protected $barangModel;
+    protected $barangModel, $bannerModel;
     public function __construct()
     {
         $this->barangModel = new BarangModel();
+        $this->bannerModel = new BannerModel();
     }
 
     public function index()
     {
+        $banner = $this->bannerModel->findAll();
 
         if(logged_in()) :
             session()->set('jml_keranjang', $this->jmlKeranjang);
@@ -26,6 +29,7 @@ class Barang extends BaseController
 
         $data = [
             'title' => 'Daftar Barang',
+            'banner' => $banner,
             'kategori1' => $kategori1,
             'pager' => $this->barangModel->pager
         ];

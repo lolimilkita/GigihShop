@@ -42,7 +42,7 @@
                     <?php endforeach; ?>
                 </tbody>
             </table>
-            <?= $pager->links('orang', 'orang_pagination'); ?>
+            <?= $pager->links('orang', 'barang_pagination'); ?>
         </div>
     </div>
 </div>

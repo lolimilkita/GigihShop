@@ -2,23 +2,43 @@
 
 namespace App\Controllers;
 
+use App\Models\BannerModel;
 use App\Models\BarangModel;
+use App\Models\KotaModel;
+use App\Models\PesananDetailModel;
+use App\Models\PesananModel;
+use CodeIgniter\Router\Exceptions\RedirectException;
 
 class Admin extends BaseController
 {
-    protected $barangModel;
+    protected $barangModel, $kotaModel, $bannerModel, $pesananModel, $pesananDetailModel;
     public function __construct()
     {
         $this->barangModel = new BarangModel();
+        $this->kotaModel = new KotaModel();
+        $this->bannerModel = new BannerModel();
+        $this->pesananModel = new PesananModel();
+        $this->pesananDetailModel = new PesananDetailModel();
     }
 
     public function index()
     {
-        $barang = $this->barangModel->findAll();
+
+        $currentPage = $this->request->getVar('page_barang') ? $this->request->getVar('page_barang') : 1;
+
+        $keyword = $this->request->getVar('keyword');
+        if($keyword) {
+            $barang = $this->barangModel->search($keyword);
+        } else {
+            $barang = $this->barangModel;
+        }
 
         $data = [
             'title' => 'Daftar Barang',
-            'barang' => $barang
+            // 'barang' => $barang
+            'barang' => $barang->paginate(4, 'barang'),
+            'pager' => $this->barangModel->pager,
+            'currentPage' => $currentPage
         ];
 
         return view('admin/index', $data);
@@ -235,5 +255,266 @@ class Admin extends BaseController
         session()->setFlashdata('pesan', 'Data berhasil ditambah.');
 
         return redirect()->to('/admin');
+    }
+
+    public function kota()
+    {
+        $kota = $this->kotaModel->findAll();
+
+        $data = [
+            'title' => 'Daftar Kota',
+            'kota' => $kota,
+            'validation' => \Config\Services::validation()
+        ];
+
+        return view('admin/kota', $data);
+    }
+
+    public function kotasave()
+    {
+        if (!$this->validate([
+            'nama' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Nama kota harus diisi!'
+                ]
+            ]
+        ])) {
+            return redirect()->to('/admin/kota')->withInput();
+        }
+        
+        // var_dump($this->request->getVar());
+
+        $this->kotaModel->save([
+            'kota' => $this->request->getVar('nama')
+        ]);
+
+        session()->setFlashdata('pesan', 'Data berhasil ditambah.');
+
+        return redirect()->to('/admin/kota');
+    }
+
+    public function kotadelete($id)
+    {
+        $this->kotaModel->delete($id);
+
+        session()->setFlashdata('pesan', 'Data berhasil dihapus.');
+
+        return redirect()->to('/admin/kota');
+    }
+
+    public function kotaedit($id)
+    {
+        $kota = $this->kotaModel->find($id);
+
+        $data = [
+            'title' => 'Mengubah Data Kota',
+            'validation' => \Config\Services::validation(),
+            'kota' => $kota
+        ];
+
+        return view('admin/kotaEdit', $data);
+    }
+
+    public function kotaupdate($id)
+    {
+        if (!$this->validate([
+            'nama' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Nama kota harus diisi!'
+                ]
+            ]
+        ])) {
+            return redirect()->to('/admin/kota')->withInput();
+        }
+        
+        // var_dump($this->request->getVar());
+
+        $this->kotaModel->save([
+            'kota_id' => $id,
+            'kota' => $this->request->getVar('nama')
+        ]);
+
+        session()->setFlashdata('pesan', 'Data berhasil dirubah.');
+
+        return redirect()->to('/admin/kota');
+    }
+
+    public function banner()
+    {
+        $banner = $this->bannerModel->findAll();
+
+        $data = [
+            'title' => 'Daftar Banner',
+            'banner' => $banner,
+            'validation' => \Config\Services::validation()
+        ];
+
+        return view('admin/banner', $data);
+    }
+
+    public function bannersave()
+    {
+        if (!$this->validate([
+            'gambar' => [
+                'rules' => 'max_size[gambar,5120]|is_image[gambar]|mime_in[gambar,image/jpg,image/jpeg,image/png]',
+                'errors' => [
+                    'max_size' => 'Ukuran gambar tidak bisa lebih dari 5MB',
+                    'is_image' => 'Yang anda pilih bukan gambar',
+                    'mim_in' => 'Yang anda pilih bukan gambar'
+                ]
+            ],
+            'nama' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Nama banner harus diisi!'
+                ]
+            ]
+        ])) {
+            return redirect()->to('/admin/banner')->withInput();
+        }
+
+        $fileGambar = $this->request->getFile('gambar');
+        $namaGambar = $fileGambar->getName();
+        $fileGambar->move('img', $namaGambar);
+
+        $this->bannerModel->save([
+            'banner' => $this->request->getVar('nama'),
+            'gambar' => $namaGambar
+        ]);
+
+        session()->setFlashdata('pesan', 'Data berhasil ditambah.');
+
+        return redirect()->to('/admin/banner');
+
+    }
+
+    public function bannerdelete($id)
+    {
+        $banner = $this->bannerModel->find($id);
+
+        $gambar = $banner['gambar'];
+
+        $gambarLama = 'img/' . $gambar;
+
+        unlink($gambarLama);
+
+        $this->bannerModel->delete($id);
+
+        session()->setFlashdata('pesan', 'Data berhasil dihapus.');
+
+        return redirect()->to('/admin/banner');
+    }
+
+    public function banneredit($id)
+    {
+        $banner = $this->bannerModel->find($id);
+
+        $data = [
+            'title' => 'Mengubah Data Banner',
+            'validation' => \Config\Services::validation(),
+            'banner' => $banner
+        ];
+
+        return view('admin/bannerEdit', $data);
+    }
+
+    public function bannerupdate($id)
+    {
+        if (!$this->validate([
+            'gambar' => [
+                'rules' => 'max_size[gambar,5120]|is_image[gambar]|mime_in[gambar,image/jpg,image/jpeg,image/png]',
+                'errors' => [
+                    'max_size' => 'Ukuran gambar tidak bisa lebih dari 5MB',
+                    'is_image' => 'Yang anda pilih bukan gambar',
+                    'mim_in' => 'Yang anda pilih bukan gambar'
+                ]
+            ],
+            'nama' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Nama banner harus diisi!'
+                ]
+            ]
+        ])) {
+            return redirect()->to('/admin/banner')->withInput();
+        }
+
+        $fileGambar = $this->request->getFile('gambar');
+        if ($fileGambar->getError() == 4) {
+            $namaGambar = $this->request->getVar('gambarLama');
+        } else {
+            $namaGambar = $fileGambar->getName();
+            $fileGambar->move('img', $namaGambar);
+            unlink('img/' . $this->request->getVar('gambarLama'));
+        }
+
+        $this->bannerModel->save([
+            'banner_id' => $id,
+            'banner' => $this->request->getVar('nama'),
+            'gambar' => $namaGambar
+        ]);
+
+        session()->setFlashdata('pesan', 'Data berhasil diubah.');
+
+        return redirect()->to('/admin/banner');
+
+    }
+
+    public function pesanan()
+    {
+        $pesanan = $this->pesananModel->findAll();
+
+        $data = [
+            'title' => 'Daftar Banner',
+            'pesanan' => $pesanan,
+            'validation' => \Config\Services::validation()
+        ];
+
+        return view('/admin/pesanan', $data);
+    }
+
+    public function pesananedit($id)
+    {
+        $pesanan = $this->pesananModel->find($id);
+
+        $data = [
+            'title' => 'Update Status',
+            'pesanan' => $pesanan,
+            'validation' => \Config\Services::validation()
+        ];
+
+        return view('/admin/pesananEdit', $data);
+    }
+
+    public function pesananupdate($id)
+    {
+        // var_dump($this->request->getVar());
+
+        $this->pesananModel->save([
+            'pesanan_id' => $id,
+            'status' => $this->request->getVar('status')
+        ]);
+
+        session()->setFlashdata('pesan', 'Data berhasil diubah.');
+
+        return redirect()->to('/admin/pesanan');
+    }
+
+    public function pesanandetail($id)
+    {
+        $pesanan = $this->pesananModel->find($id);
+        $detail = $this->pesananDetailModel->where('pesanan_id', $id)->findAll();
+        
+        // var_dump($detail);
+
+        $data = [
+            'title' => 'Pesanan Detail',
+            'pesanan' => $pesanan,
+            'detail' => $detail
+        ];
+
+        return view('/admin/pesanandetail', $data);
     }
 }

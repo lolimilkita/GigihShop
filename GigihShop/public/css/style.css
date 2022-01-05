@@ -151,10 +151,16 @@ table > tbody > tr > * {
     max-width: 460px;
 }
 
-#v-pills-barang {
+.tabAdmin {
     border-radius: 20px;
     background: white;
     padding: 1rem;
+}
+
+#banner {
+    width: 1200px;
+    height: 300px;
+    object-fit: cover;
 }
 
 
@@ -167,5 +173,11 @@ table > tbody > tr > * {
         display: flex;
         flex-direction: column;
         margin-right: 1rem;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .pencarian {
+        flex-direction: column;
     }
 }
