@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col">
             <div class="card border-0 mb-4" id="cardKeranjang">
-                <h2 class="mb-4 text-center">Form Ubah Data Barang</h2>
+                <h2 class="mb-4 text-center">Form Tambah Data Barang</h2>
                 <form action="/admin/barangsave" method="POST" class="row g-3" enctype="multipart/form-data">
                     <?= csrf_field(); ?>
                     <div class="col-md-6">

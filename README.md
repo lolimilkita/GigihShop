@@ -32,6 +32,12 @@ Menambahkan fitur pesanan lengkap CRUD beserta database, kurang filter login unt
 <img src="https://github.com/lolimilkita/Project-Website-UpworkTeam/blob/Developer/img_readme/lima_1.png">
 <img src="https://github.com/lolimilkita/Project-Website-UpworkTeam/blob/Developer/img_readme/lima_2.png">
 
+6. Update Fitur Filter Admin (05-01-2022 7:30)
+Sudah bisa Login dua akun berbeda admin atau user biasa, tambah fitur CRUD data barang. Fix kekurangan commit sebelumnya. User tidak bisa akses fitur admin.
+
+<img src="https://github.com/lolimilkita/Project-Website-UpworkTeam/blob/Developer/img_readme/enam_1.png">
+<img src="https://github.com/lolimilkita/Project-Website-UpworkTeam/blob/Developer/img_readme/enam_2.png">
+
 # Catatan
 1. file env seharusnya tidak bisa di commit ke git, jadi saya buat dua file env yang ini_env.txt merupakan env yang saya gunakan guys.
 
