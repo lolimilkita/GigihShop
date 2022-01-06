@@ -12,7 +12,7 @@
                     <input type="hidden" name="gambarLama" value="<?= $barang['gambar']; ?>">
                     <div class="col-md-6">
                         <label for="nama" class="form-label">Nama Barang</label>
-                        <input type="text" class="form-control <?= ($validation->hasError('nama')) ? 'is-invalid' : ''; ?>" name="nama" id="nama" value="<?= $barang['nama_barang']; ?>">
+                        <input type="text" class="form-control <?= ($validation->hasError('nama')) ? 'is-invalid' : ''; ?>" name="nama" id="nama" value="<?= (old('nama_barang')) ? old('nama_barang') : $barang['nama_barang']; ?>">
                         <div class="invalid-feedback">
                             <?= $validation->getError('nama'); ?>
                         </div>
@@ -50,31 +50,31 @@
                                 <p>Jika tidak ada harganya bisa masukkan 0 saja</p>
                                 <div class="col-md-4">
                                     <label for="Harga1" class="form-label">Harga1 (1KG)</label>
-                                    <input type="number" class="form-control" id="Harga1" name="harga1" value="<?= $barang['harga1']; ?>">
+                                    <input type="number" class="form-control" id="Harga1" name="harga1" value="<?= (old('harga1')) ? old('harga1') : $barang['harga1']; ?>">
                                 </div>
                                 <div class="col-md-4">
                                     <label for="Harga2" class="form-label">Harga2 (5KG)</label>
-                                    <input type="number" class="form-control" id="Harga2" name="harga2" value="<?= $barang['harga2']; ?>">
+                                    <input type="number" class="form-control" id="Harga2" name="harga2" value="<?= (old('harga2')) ? old('harga2') : $barang['harga2']; ?>">
                                 </div>
                                 <div class="col-md-4">
                                     <label for="Harga3" class="form-label">Harga3 (10KG)</label>
-                                    <input type="number" class="form-control" id="Harga3" name="harga3" value="<?= $barang['harga3']; ?>">
+                                    <input type="number" class="form-control" id="Harga3" name="harga3" value="<?= (old('harga3')) ? old('harga3') : $barang['harga3']; ?>">
                                 </div>
                                 <div class="col-md-6">
                                     <label for="Harga4" class="form-label">Harga4 (1/2 Pickup)</label>
-                                    <input type="number" class="form-control" id="Harga4" name="harga4" value="<?= $barang['harga4']; ?>">
+                                    <input type="number" class="form-control" id="Harga4" name="harga4" value="<?= (old('harga4')) ? old('harga4') : $barang['harga4']; ?>">
                                 </div>
                                 <div class="col-md-6">
                                     <label for="Harga5" class="form-label">Harga5 (1 Pickup)</label>
-                                    <input type="number" class="form-control" id="Harga5" name="harga5" value="<?= $barang['harga5']; ?>">
+                                    <input type="number" class="form-control" id="Harga5" name="harga5" value="<?= (old('harga5')) ? old('harga5') : $barang['harga5']; ?>">
                                 </div>
                                 <div class="col-md-6">
                                     <label for="Harga6" class="form-label">Harga6 (1/2 Truck)</label>
-                                    <input type="number" class="form-control" id="Harga6" name="harga6" value="<?= $barang['harga6']; ?>">
+                                    <input type="number" class="form-control" id="Harga6" name="harga6" value="<?= (old('harga6')) ? old('harga6') : $barang['harga6']; ?>">
                                 </div>
                                 <div class="col-md-6">
                                     <label for="Harga7" class="form-label">Harga7 (1 Truck)</label>
-                                    <input type="number" class="form-control" id="Harga7" name="harga7" value="<?= $barang['harga7']; ?>">
+                                    <input type="number" class="form-control" id="Harga7" name="harga7" value="<?= (old('harga7')) ? old('harga7') : $barang['harga7']; ?>">
                                 </div>
                             </div>
                         </div>

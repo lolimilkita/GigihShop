@@ -18,14 +18,13 @@ class Pesanan extends BaseController
 
     public function index()
     {
-        $pesanan = $this->pesananModel->findAll();
+        $pesanan = $this->pesananModel->where('users_id', $this->userId)->findAll();
         $kota = $this->kotaModel->findAll();
 
         $data = [
             'title' => 'Daftar Pesanan',
             'pesanan' => $pesanan,
             'kota' => $kota
-            
         ];
 
         return view('pesanan/index', $data);
@@ -128,7 +127,6 @@ class Pesanan extends BaseController
         $pesanan = $this->pesananModel->where('pesanan_id', $id)->findAll();
 
         $detail = $this->pesananDetailModel->where('pesanan_id', $id)->findAll();
-
 
         $data = [
             'title' => 'Detail Pesanan',

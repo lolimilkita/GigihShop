@@ -28,11 +28,12 @@
             </a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="#">Profil</a></li>
-              <li><a class="dropdown-item" href="/pesanan">Pesanan</a></li>
+              <?php if (in_groups('user')) : ?>
+                <li><a class="dropdown-item" href="/pesanan">Pesanan</a></li>
+              <?php endif; ?>
               <li><a class="dropdown-item" href="/logout">Keluar</a></li>
             </ul>
           </div>
-          
         <?php else : ?>
           <a class="btn btn-outline-secondary" href="/login">Login</a>
         <?php endif; ?>
