@@ -376,7 +376,7 @@ class Admin extends BaseController
         }
 
         $fileGambar = $this->request->getFile('gambar');
-        $namaGambar = $fileGambar->getName();
+        $namaGambar = $fileGambar->getRandomName();
         $fileGambar->move('img', $namaGambar);
 
         $this->bannerModel->save([
@@ -445,7 +445,7 @@ class Admin extends BaseController
         if ($fileGambar->getError() == 4) {
             $namaGambar = $this->request->getVar('gambarLama');
         } else {
-            $namaGambar = $fileGambar->getName();
+            $namaGambar = $fileGambar->getRandomName();
             $fileGambar->move('img', $namaGambar);
             unlink('img/' . $this->request->getVar('gambarLama'));
         }

@@ -27,23 +27,32 @@ Menambahkan http method spoofing jadi tidak bisa hapus data keranjang dari http 
 <img src="https://github.com/lolimilkita/Project-Website-UpworkTeam/blob/Developer/img_readme/empat_1.png">
 
 5. Update Fitur Pesanan (03-01-2022)
-Menambahkan fitur pesanan lengkap CRUD beserta database, kurang filter login untuk pesanan
 
 <img src="https://github.com/lolimilkita/Project-Website-UpworkTeam/blob/Developer/img_readme/lima_1.png">
 <img src="https://github.com/lolimilkita/Project-Website-UpworkTeam/blob/Developer/img_readme/lima_2.png">
+Menambahkan fitur pesanan lengkap CRUD beserta database, kurang filter login untuk pesanan
 
 6. Update Fitur Filter Admin (05-01-2022 7:30)
-Sudah bisa Login dua akun berbeda admin atau user biasa, tambah fitur CRUD data barang. Fix kekurangan commit sebelumnya. User tidak bisa akses fitur admin.
 
 <img src="https://github.com/lolimilkita/Project-Website-UpworkTeam/blob/Developer/img_readme/enam_1.png">
 <img src="https://github.com/lolimilkita/Project-Website-UpworkTeam/blob/Developer/img_readme/enam_2.png">
+Sudah bisa Login dua akun berbeda admin atau user biasa, tambah fitur CRUD data barang. Fix kekurangan commit sebelumnya. User tidak bisa akses fitur admin.
 
 7. update Fitur-fitur admin (05-01-2022 16:30)
-Sekarang sudah lengkap tinggal merapikan file dummy, ada fitur CRUD Kota, CRUD Banner, Update Status Pesanan
 
 <img src="https://github.com/lolimilkita/Project-Website-UpworkTeam/blob/Developer/img_readme/tujuh_1.png">
 <img src="https://github.com/lolimilkita/Project-Website-UpworkTeam/blob/Developer/img_readme/tujuh_2.png">
 
+Sekarang sudah lengkap tinggal merapikan file dummy, ada fitur CRUD Kota, CRUD Banner, Update Status Pesanan
+
+8. Update UI (08-01-2022)
+<img src="https://github.com/lolimilkita/Project-Website-UpworkTeam/blob/Developer/img_readme/delapan_1.png">
+<img src="https://github.com/lolimilkita/Project-Website-UpworkTeam/blob/Developer/img_readme/delapan_2.png">
+<img src="https://github.com/lolimilkita/Project-Website-UpworkTeam/blob/Developer/img_readme/delapan_3.png">
+<img src="https://github.com/lolimilkita/Project-Website-UpworkTeam/blob/Developer/img_readme/delapan_4.png">
+<img src="https://github.com/lolimilkita/Project-Website-UpworkTeam/blob/Developer/img_readme/delapan_5.png">
+
+update tampilan landing page (home), dan sedikit merubah kata kategori di halaman barang
 
 # Catatan
 1. file env seharusnya tidak bisa di commit ke git, jadi saya buat dua file env yang ini_env.txt merupakan env yang saya gunakan guys.

@@ -36,41 +36,37 @@ $routes->get('/', 'Pages::index');
 $routes->get('/admin', 'Admin::index', ['filter' => 'role:admin']);
 $routes->get('/admin/index', 'Admin::index', ['filter' => 'role:admin']);
 
-$routes->get('/admin/barangdetail/(:num)', 'Admin::barangdetail', ['filter' => 'role:admin']);
-$routes->get('/admin/barangdelete/(:num)', 'Admin::barangdelete', ['filter' => 'role:admin']);
-$routes->get('/admin/barangupdate/(:num)', 'Admin::barangupdate', ['filter' => 'role:admin']);
+$routes->get('/admin/barangdetail/(:num)', 'Admin::barangdetail/$1', ['filter' => 'role:admin']);
+$routes->delete('/admin/barangdelete/(:num)', 'Admin::barangdelete/$1', ['filter' => 'role:admin']);
+$routes->get('/admin/barangupdate/(:num)', 'Admin::barangupdate/$1', ['filter' => 'role:admin']);
 $routes->get('/admin/barangsave', 'Admin::barangsave', ['filter' => 'role:admin']);
 
 $routes->get('/admin/kota', 'Admin::kota', ['filter' => 'role:admin']);
 $routes->get('/admin/kota/index', 'Admin::kota', ['filter' => 'role:admin']);
 $routes->get('/admin/kota/kotasave', 'Admin::kotasave', ['filter' => 'role:admin']);
-$routes->get('/admin/kota/kotadelete/(:num)', 'Admin::kotadelete', ['filter' => 'role:admin']);
-$routes->get('/admin/kota/kotaedit/(:num)', 'Admin::kotaedit', ['filter' => 'role:admin']);
-$routes->get('/admin/kota/kotaupdate/(:num)', 'Admin::kotaupdate', ['filter' => 'role:admin']);
+$routes->delete('/admin/kota/kotadelete/(:num)', 'Admin::kotadelete/$1', ['filter' => 'role:admin']);
+$routes->get('/admin/kota/kotaedit/(:num)', 'Admin::kotaedit/$1', ['filter' => 'role:admin']);
+$routes->get('/admin/kota/kotaupdate/(:num)', 'Admin::kotaupdate/$1', ['filter' => 'role:admin']);
 
 $routes->get('/admin/banner', 'Admin::banner', ['filter' => 'role:admin']);
 $routes->get('/admin/banner/index', 'Admin::banner', ['filter' => 'role:admin']);
 $routes->get('/admin/bannersave', 'Admin::bannersave', ['filter' => 'role:admin']);
-$routes->get('/admin/bannerdelete/(:num)', 'Admin::bannerdelete', ['filter' => 'role:admin']);
-$routes->get('/admin/banneredit/(:num)', 'Admin::banneredit', ['filter' => 'role:admin']);
-$routes->get('/admin/bannerupdate/(:num)', 'Admin::bannerupdate', ['filter' => 'role:admin']);
+$routes->delete('/admin/bannerdelete/(:num)', 'Admin::bannerdelete/$1', ['filter' => 'role:admin']);
+$routes->get('/admin/banneredit/(:num)', 'Admin::banneredit/$1', ['filter' => 'role:admin']);
+$routes->get('/admin/bannerupdate/(:num)', 'Admin::bannerupdate/$1', ['filter' => 'role:admin']);
 
 $routes->get('/admin/pesanan', 'Admin::pesanan', ['filter' => 'role:admin']);
 $routes->get('/admin/pesanan/index', 'Admin::pesanan', ['filter' => 'role:admin']);
-$routes->get('/admin/pesananedit/(:num)', 'Admin::pesananedit', ['filter' => 'role:admin']);
-$routes->get('/admin/pesananupdate/(:num)', 'Admin::pesananupdate', ['filter' => 'role:admin']);
+$routes->get('/admin/pesananedit/(:num)', 'Admin::pesananedit/$1', ['filter' => 'role:admin']);
+$routes->get('/admin/pesananupdate/(:num)', 'Admin::pesananupdate/$1', ['filter' => 'role:admin']);
 
 $routes->get('/pesanan', 'Pesanan::index', ['filter' => 'role:user']);
 $routes->get('/pesanan/index', 'Pesanan::index', ['filter' => 'role:user']);
 $routes->get('/pesanan/pesanan', 'Pesanan::pesanan', ['filter' => 'role:user']);
-$routes->get('/pesanan/detail/(:num)', 'Pesanan::detail', ['filter' => 'role:user']);
-$routes->get('/pesanan/delete/(:num)', 'Pesanan::delete', ['filter' => 'role:user']);
+$routes->get('/pesanan/detail/(:num)', 'Pesanan::detail/$1', ['filter' => 'role:user']);
+$routes->delete('/pesanan/delete/(:num)', 'Pesanan::delete/$1', ['filter' => 'role:user']);
 $routes->get('/pesanan/berhasil', 'Pesanan::berhasil', ['filter' => 'role:user']);
 $routes->get('/pesanan/savepesanan', 'Pesanan::savepesanan', ['filter' => 'role:user']);
-
-$routes->get('/admin/barangcreate', 'Admin::barangcreate');
-$routes->get('/admin/barangdetail/(:segment)', 'Admin::barangdetail/$1');
-$routes->delete('/admin/barangdelete/(:num)', 'Admin::barangdelete/$1');
 
 $routes->get('/keranjang/tambah/(:num)', 'Keranjang::tambah/$1');
 $routes->delete('/keranjang/(:num)', 'Keranjang::delete/$1');

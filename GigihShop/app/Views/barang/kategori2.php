@@ -22,15 +22,14 @@
 
             <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="/img/banner1.jpg" class="d-block w-100" >
-                    </div>
+                  <div class="carousel-item active">
+                    <img src="/img/banner_default.jpg" class="d-block w-100" id="banner" >
+                  </div>
+                  <?php foreach($banner as $b) : ?>
                     <div class="carousel-item">
-                        <img src="/img/banner2.jpg" class="d-block w-100" >
+                      <img src="/img/<?= $b['gambar']; ?>" class="d-block w-100" id="banner">
                     </div>
-                    <div class="carousel-item">
-                        <img src="/img/banner3.jpg" class="d-block w-100" >
-                    </div>
+                  <?php endforeach; ?>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -45,13 +44,13 @@
             <nav id="nav-tabs-barang">
               <ul class="nav nav-tabs" id="nav-tab" role="tablist">
                 <li class="nav-item">
-                  <a class="nav-link" id="nav-home-tab" data-bs-target="#nav-home" role="tab" aria-selected="false" href="/barang">Kategori 1</a>
+                  <a class="nav-link" id="nav-home-tab" data-bs-target="#nav-home" role="tab" aria-selected="false" href="/barang">Batu</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link active" id="nav-profile-tab" data-bs-target="#nav-profile" role="tab" aria-selected="true" href="">Kategori 2</a>
+                  <a class="nav-link active" id="nav-profile-tab" data-bs-target="#nav-profile" role="tab" aria-selected="true" href="">Pasir</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" id="nav-contact-tab" data-bs-target="#nav-contact" role="tab" aria-selected="false" href="/barang/kategori3">kategori 3</a>
+                  <a class="nav-link" id="nav-contact-tab" data-bs-target="#nav-contact" role="tab" aria-selected="false" href="/barang/kategori3">Tanah Urug</a>
                 </li>
               </ul>
             </nav>
@@ -65,8 +64,11 @@
                     <?php else : ?>
                     <?php foreach($kategori2 as $k) : ?>
                       <div class="col">
-                        <div class="card h-100">
+                        <div class="card h-100" id="cardBarang">
                           <img src="/img/barang/<?= $k['gambar']; ?>" class="card-img-top" >
+                          <div class="card-img-overlay">
+                            <a href="/barang/detail/<?= $k['barang_id']; ?>" id="main"></a>
+                          </div>
                           <div class="card-body">
                             <h5 class="card-title"><?= $k['nama_barang']; ?></h5>
                             <p class="price">
@@ -81,12 +83,12 @@
                               ?>
                             </p>
                             <?php if(logged_in()) : ?>
-                              <a type="button" class="btn btn-secondary" href="/keranjang/tambah/<?= $k['barang_id']; ?>" >+ Tambah Ke Keranjang</a>
+                              <a id="tambahK" type="button" class="btn btn-secondary" href="/keranjang/tambah/<?= $k['barang_id']; ?>" >
+                                <i class="bi bi-cart-plus"></i>
+                                Tambah
+                              </a>
                             <?php else : ?>
-                              <a type="button" class="btn btn-secondary disabled" >+ Tambah Ke Keranjang</a>
-                              <div class="text-danger d-flex" role="alert">
-                                  <?php echo session()->getFlashdata('not_login') ?>
-                              </div>
+                              <a id="tambahK" type="button" class="btn btn-secondary d-none">Tambah</a>
                             <?php endif; ?>
                           </div>
                         </div>

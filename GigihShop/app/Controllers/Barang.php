@@ -37,25 +37,49 @@ class Barang extends BaseController
         return view('/barang/index', $data);
     }
 
-    public function kategori2(){
+    public function kategori2()
+    {
+        $banner = $this->bannerModel->findAll();
+
         $kategori2 = $this->barangModel->where('kategori_id', 2)->paginate(6, 'barang');
+        
+        session()->setFlashdata('not_login', 'Silahkan login terlebih dahulu');
 
         $data = [
             'title' => 'Kategori 2',
+            'banner' => $banner,
             'kategori2' => $kategori2,
             'pager' => $this->barangModel->pager
         ];
         return view('/barang/kategori2', $data);
     }
 
-    public function kategori3(){
+    public function kategori3()
+    {
+        $banner = $this->bannerModel->findAll();
+
         $kategori3 = $this->barangModel->where('kategori_id', 3)->paginate(6, 'barang');
 
         $data = [
             'title' => 'Kategori 2',
+            'banner' => $banner,
             'kategori3' => $kategori3,
             'pager' => $this->barangModel->pager
         ];
         return view('/barang/kategori3', $data);
+    }
+
+    public function detail($id)
+    {
+        $barang = $this->barangModel->getBarang($id);
+
+        $data = [
+            'title' => $barang['nama_barang'],
+            'barang' => $barang
+        ];
+
+        session()->setFlashdata('not_login', 'Silahkan login terlebih dahulu');
+
+        return view('/barang/detail', $data);
     }
 }
