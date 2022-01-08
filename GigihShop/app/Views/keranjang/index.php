@@ -59,10 +59,10 @@
                                                 case $k['harga5']:
                                                     echo rupiah($k['harga_dipilih']) , " (1 Pickup)";
                                                     break;
-                                                case $k['harga5']:
+                                                case $k['harga6']:
                                                     echo rupiah($k['harga_dipilih']) , " (1/2 Truck)";
                                                     break;
-                                                case $k['harga6']:
+                                                case $k['harga7']:
                                                     echo rupiah($k['harga_dipilih']) , " (1 Truck)";
                                                     break;
                                             }

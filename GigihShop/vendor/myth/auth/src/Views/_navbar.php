@@ -10,7 +10,6 @@
     <div class="collapse navbar-collapse" id="navbarNav">            
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <a class="nav-item nav-link" href="<?= base_url('/pages/about'); ?>">Kontak</a>
-        <a class="nav-item nav-link" href="/orang">Orang</a>
         <a class="nav-item nav-link" href="/barang">Barang</a>
       </ul>
       <form class="d-flex">

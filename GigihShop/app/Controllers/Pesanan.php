@@ -128,6 +128,8 @@ class Pesanan extends BaseController
 
         $detail = $this->pesananDetailModel->where('pesanan_id', $id)->findAll();
 
+        // var_dump($id);
+
         $data = [
             'title' => 'Detail Pesanan',
             'pesanan' => $pesanan,
