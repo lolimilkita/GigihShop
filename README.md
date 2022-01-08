@@ -57,7 +57,7 @@ update tampilan landing page (home), dan sedikit merubah kata kategori di halama
 
 
 ### 9. Update UI Halaman Kontak (08-01-2022)
-update tampilan kontak, dan sedikit merubah titel halaman\n
+update tampilan kontak, dan sedikit merubah titel halaman
 
 <img src="https://github.com/lolimilkita/Project-Website-UpworkTeam/blob/Developer/img_readme/sembilan.png">
 
