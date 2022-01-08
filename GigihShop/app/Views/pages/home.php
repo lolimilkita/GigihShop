@@ -7,7 +7,7 @@
 
             <div class="card border-0 bg-transparent mt-3">
                 <div class="row">
-                    <div class="col-md-2">
+                    <div class="col-lg-2">
                         <div class="card-body" id="cardGlass">
                             <h1 class="card-title fw-bold mb-4">Selamat datang di Gigih Shop</h1>
                             <p class="card-text mb-5">Kami menjual berbagai macam material untuk pembangunan, dikirim menggunakan truck maupun mobil pickup jadi anda bisa pesan banyak maupun sedang</p>
@@ -17,7 +17,7 @@
                             </a>
                         </div>
                     </div>
-                    <div class="col-md-10">
+                    <div class="col-lg-10" id="imgHomeTop">
                       <img src="/img/Frame_66.jpg" class="img-fluid" alt="...">
                     </div>
                 </div>
@@ -160,7 +160,7 @@
                     JL. Flamboyan No.5 Desa/Kel Plandi RT.003 RW.001 Kec.Purwodadi Kab.Purworejo
                 </p>        
             </div>
-            <h5 class="text-center mb-3">
+            <h5 class="text-center mb-5">
                 Copyright CV GIGIH 2022
             </h5>
         </div>
