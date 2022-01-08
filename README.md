@@ -9,43 +9,43 @@ Client CV GIGIH Purworejo
 <img src="https://github.com/lolimilkita/Project-Website-UpworkTeam/blob/Developer/img_readme/logo_cvgigih.png" width="250px" height="auto">
 
 # Perkembangan 
-1. First Commit
+### 1. First Commit
 <img src="https://github.com/lolimilkita/Project-Website-UpworkTeam/blob/Developer/img_readme/2021-12-14.png">
 
-2. Update UI Login Register ResetPW (18-12-21)
+### 2. Update UI Login Register ResetPW (18-12-21)
 <img src="https://github.com/lolimilkita/Project-Website-UpworkTeam/blob/Developer/img_readme/2021-12-18.png">
 
-3. Update gambaran tabs di halaman barang, sudah clean menggunakan database juga (19-12-21)
+### 3. Update gambaran tabs di halaman barang, sudah clean menggunakan database juga (19-12-21)
 <img src="https://github.com/lolimilkita/Project-Website-UpworkTeam/blob/Developer/img_readme/tabs1.png">
 <img src="https://github.com/lolimilkita/Project-Website-UpworkTeam/blob/Developer/img_readme/tabs2.png">
 
-4. Update Pagination dan cart
+### 4. Update Pagination dan cart
 <img src="https://github.com/lolimilkita/Project-Website-UpworkTeam/blob/Developer/img_readme/empat.png">
 
 Menambahkan http method spoofing jadi tidak bisa hapus data keranjang dari http untuk user yg sudah login maupun belum
 
 <img src="https://github.com/lolimilkita/Project-Website-UpworkTeam/blob/Developer/img_readme/empat_1.png">
 
-5. Update Fitur Pesanan (03-01-2022)
+### 5. Update Fitur Pesanan (03-01-2022)
 
 <img src="https://github.com/lolimilkita/Project-Website-UpworkTeam/blob/Developer/img_readme/lima_1.png">
 <img src="https://github.com/lolimilkita/Project-Website-UpworkTeam/blob/Developer/img_readme/lima_2.png">
 Menambahkan fitur pesanan lengkap CRUD beserta database, kurang filter login untuk pesanan\n
 
-6. Update Fitur Filter Admin (05-01-2022 7:30)
+### 6. Update Fitur Filter Admin (05-01-2022 7:30)
 
 <img src="https://github.com/lolimilkita/Project-Website-UpworkTeam/blob/Developer/img_readme/enam_1.png">
 <img src="https://github.com/lolimilkita/Project-Website-UpworkTeam/blob/Developer/img_readme/enam_2.png">
 Sudah bisa Login dua akun berbeda admin atau user biasa, tambah fitur CRUD data barang. Fix kekurangan commit sebelumnya. User tidak bisa akses fitur admin. \n
 
-7. update Fitur-fitur admin (05-01-2022 16:30)
+### 7. update Fitur-fitur admin (05-01-2022 16:30)
 
 <img src="https://github.com/lolimilkita/Project-Website-UpworkTeam/blob/Developer/img_readme/tujuh_1.png">
 <img src="https://github.com/lolimilkita/Project-Website-UpworkTeam/blob/Developer/img_readme/tujuh_2.png">
 
-Sekarang sudah lengkap tinggal merapikan file dummy, ada fitur CRUD Kota, CRUD Banner, Update Status Pesanan\n
+Sekarang sudah lengkap tinggal merapikan file dummy, ada fitur CRUD Kota, CRUD Banner, Update Status Pesanan
 
-8. Update UI (08-01-2022)
+### 8. Update UI (08-01-2022)
 <img src="https://github.com/lolimilkita/Project-Website-UpworkTeam/blob/Developer/img_readme/delapan_1.png">
 <img src="https://github.com/lolimilkita/Project-Website-UpworkTeam/blob/Developer/img_readme/delapan_2.png">
 <img src="https://github.com/lolimilkita/Project-Website-UpworkTeam/blob/Developer/img_readme/delapan_3.png">
@@ -54,7 +54,7 @@ Sekarang sudah lengkap tinggal merapikan file dummy, ada fitur CRUD Kota, CRUD B
 
 update tampilan landing page (home), dan sedikit merubah kata kategori di halaman barang\n
 
-9. Update UI Halaman Kontak (08-01-2022)
+### 9. Update UI Halaman Kontak (08-01-2022)
 <img src="https://github.com/lolimilkita/Project-Website-UpworkTeam/blob/Developer/img_readme/sembilan.png">
 
 update tampilan kontak, dan sedikit merubah titel halaman\n
