@@ -91,7 +91,7 @@
                             </select>
 
                             <?php if(logged_in()) : ?>
-                                <a type="button" class="btn btn-secondary" href="/keranjang/tambah/<?= $k['barang_id']; ?>" >
+                                <a type="button" class="btn btn-secondary" href="/keranjang/tambah/<?= $barang['barang_id']; ?>" >
                                     <i class="bi bi-cart-plus"></i>
                                     Tambah Ke Keranjang
                                 </a>
