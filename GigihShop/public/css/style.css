@@ -206,10 +206,6 @@ a#main::after {
 
 #cardGlass {
     padding: 40px;
-    position: absolute;
-    top: 100px;
-    width: 40%;
-    height: auto;
     background: #ffffff62;
     backdrop-filter: blur(5px);
 }
@@ -270,6 +266,18 @@ a#home::after {
         display: flex;
         flex-direction: column;
         margin-right: 1rem;
+    }
+}
+
+@media only screen and (min-width: 992px){
+    #cardGlass {
+        padding: 40px;
+        position: absolute;
+        top: 80px;
+        width: 40%;
+        height: auto;
+        background: #ffffff62;
+        backdrop-filter: blur(5px);
     }
 }
 

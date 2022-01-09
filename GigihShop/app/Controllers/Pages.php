@@ -13,7 +13,7 @@ class Pages extends BaseController
         endif;
 
         $data = [
-            'title' => 'Home | Web Test'
+            'title' => 'Home | Gigih Shops'
         ];
         return view('pages/home', $data);     
     }
@@ -25,7 +25,7 @@ class Pages extends BaseController
             session()->set('jml_keranjang', $this->jmlKeranjang);
         endif;
         $data = [
-            'title' => 'About Me'
+            'title' => 'Kontak Kami'
         ];
         return view('pages/about', $data);
     }
