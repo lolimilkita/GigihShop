@@ -68,7 +68,7 @@ abstract class AbstractNoUselessElseFixer extends AbstractFixer
                 return false;
             }
 
-            if ($tokens[$candidateIndex]->equals([T_THROW])) {
+            if ($tokens[$candidateIndex]->isGivenKind(T_THROW)) {
                 $previousIndex = $tokens->getPrevMeaningfulToken($candidateIndex);
 
                 if (!$tokens[$previousIndex]->equalsAny([';', '{'])) {
@@ -143,7 +143,7 @@ abstract class AbstractNoUselessElseFixer extends AbstractFixer
     /**
      * For internal use only, as it is not perfect.
      *
-     * Returns if the token at given index is part of a if/elseif/else statement
+     * Returns if the token at given index is part of an if/elseif/else statement
      * without {}. Assumes not passing the last `;`/close tag of the statement, not
      * out of range index, etc.
      *

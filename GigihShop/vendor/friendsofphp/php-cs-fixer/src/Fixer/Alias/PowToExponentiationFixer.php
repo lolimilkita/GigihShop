@@ -73,7 +73,7 @@ final class PowToExponentiationFixer extends AbstractFunctionReferenceFixer
 
         foreach (array_reverse($candidates) as $candidate) {
             // if in the previous iteration(s) tokens were added to the collection and this is done within the tokens
-            // indexes of the current candidate than the index of the close ')' of the candidate has moved and so
+            // indices of the current candidate than the index of the close ')' of the candidate has moved and so
             // the index needs to be updated
             if ($previousCloseParenthesisIndex < $candidate[2]) {
                 $previousCloseParenthesisIndex = $candidate[2];
@@ -151,7 +151,7 @@ final class PowToExponentiationFixer extends AbstractFunctionReferenceFixer
 
         $added = 0;
 
-        // check if the arguments need to be wrapped in parenthesis
+        // check if the arguments need to be wrapped in parentheses
         foreach (array_reverse($arguments, true) as $argumentStartIndex => $argumentEndIndex) {
             if ($this->isParenthesisNeeded($tokens, $argumentStartIndex, $argumentEndIndex)) {
                 $tokens->insertAt($argumentEndIndex + 1, new Token(')'));

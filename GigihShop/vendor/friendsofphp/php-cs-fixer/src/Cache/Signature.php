@@ -21,30 +21,15 @@ namespace PhpCsFixer\Cache;
  */
 final class Signature implements SignatureInterface
 {
-    /**
-     * @var string
-     */
-    private $phpVersion;
+    private string $phpVersion;
 
-    /**
-     * @var string
-     */
-    private $fixerVersion;
+    private string $fixerVersion;
 
-    /**
-     * @var string
-     */
-    private $indent;
+    private string $indent;
 
-    /**
-     * @var string
-     */
-    private $lineEnding;
+    private string $lineEnding;
 
-    /**
-     * @var array
-     */
-    private $rules;
+    private array $rules;
 
     public function __construct(string $phpVersion, string $fixerVersion, string $indent, string $lineEnding, array $rules)
     {
@@ -91,10 +76,6 @@ final class Signature implements SignatureInterface
 
     private static function utf8Encode(array $data): array
     {
-        if (!\function_exists('mb_detect_encoding')) {
-            return $data;
-        }
-
         array_walk_recursive($data, static function (&$item): void {
             if (\is_string($item) && !mb_detect_encoding($item, 'utf-8', true)) {
                 $item = utf8_encode($item);

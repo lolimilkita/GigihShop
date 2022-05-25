@@ -94,6 +94,7 @@ class Foo
 
             // is it inside a namespace?
             $nspIndex = $tokens->getPrevTokenOfKind($index, [[T_NAMESPACE, 'namespace']]);
+
             if (null !== $nspIndex) {
                 $nspIndex = $tokens->getNextMeaningfulToken($nspIndex);
 
@@ -146,13 +147,11 @@ class Foo
         $php4 = $this->findFunction($tokens, $className, $classStart, $classEnd);
 
         if (null === $php4) {
-            // no PHP4-constructor!
-            return;
+            return; // no PHP4-constructor!
         }
 
         if (!empty($php4['modifiers'][T_ABSTRACT]) || !empty($php4['modifiers'][T_STATIC])) {
-            // PHP4 constructor can't be abstract or static
-            return;
+            return; // PHP4 constructor can't be abstract or static
         }
 
         $php5 = $this->findFunction($tokens, '__construct', $classStart, $classEnd);
@@ -190,6 +189,7 @@ class Foo
                 for ($i = $php5['startIndex']; $i <= $php5['endIndex']; ++$i) {
                     $tokens->clearAt($i);
                 }
+
                 // rename the PHP4 one to __construct
                 $tokens[$php4['nameIndex']] = new Token([T_STRING, '__construct']);
 
@@ -221,7 +221,7 @@ class Foo
             ], $classStart, $classEnd, [2 => false]);
 
             if (null !== $parentSeq) {
-                // we only need indexes
+                // we only need indices
                 $parentSeq = array_keys($parentSeq);
 
                 // match either of the possibilities
@@ -242,7 +242,7 @@ class Foo
                 ], $classStart, $classEnd, [2 => false]);
 
                 if (null !== $parentSeq) {
-                    // we only need indexes
+                    // we only need indices
                     $parentSeq = array_keys($parentSeq);
 
                     // replace call with parent::__construct()
@@ -378,7 +378,7 @@ class Foo
             return null;
         }
 
-        // keep only the indexes
+        // keep only the indices
         $function = array_keys($function);
 
         // find previous block, saving method modifiers for later use

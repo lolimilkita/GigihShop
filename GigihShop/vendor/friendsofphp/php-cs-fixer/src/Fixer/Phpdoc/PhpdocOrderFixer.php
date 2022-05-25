@@ -85,7 +85,7 @@ final class PhpdocOrderFixer extends AbstractFixer
             // move param to start, return to end, leave throws in the middle
             $content = $this->moveParamAnnotations($content);
             // we're parsing the content again to make sure the internal
-            // state of the dockblock is correct after the modifications
+            // state of the docblock is correct after the modifications
             $content = $this->moveReturnAnnotations($content);
             // persist the content at the end
             $tokens[$index] = new Token([T_DOC_COMMENT, $content]);
@@ -101,13 +101,13 @@ final class PhpdocOrderFixer extends AbstractFixer
         $params = $doc->getAnnotationsOfType('param');
 
         // nothing to do if there are no param annotations
-        if (empty($params)) {
+        if (0 === \count($params)) {
             return $content;
         }
 
         $others = $doc->getAnnotationsOfType(['throws', 'return']);
 
-        if (empty($others)) {
+        if (0 === \count($others)) {
             return $content;
         }
 
@@ -119,7 +119,7 @@ final class PhpdocOrderFixer extends AbstractFixer
         // move stuff about if required
         foreach ($others as $other) {
             if ($other->getStart() < $end) {
-                // we're doing this to maintain the original line indexes
+                // we're doing this to maintain the original line indices
                 $line->setContent($line->getContent().$other->getContent());
                 $other->remove();
             }
@@ -137,14 +137,14 @@ final class PhpdocOrderFixer extends AbstractFixer
         $returns = $doc->getAnnotationsOfType('return');
 
         // nothing to do if there are no return annotations
-        if (empty($returns)) {
+        if (0 === \count($returns)) {
             return $content;
         }
 
         $others = $doc->getAnnotationsOfType(['param', 'throws']);
 
         // nothing to do if there are no other annotations
-        if (empty($others)) {
+        if (0 === \count($others)) {
             return $content;
         }
 
@@ -155,7 +155,7 @@ final class PhpdocOrderFixer extends AbstractFixer
         // move stuff about if required
         foreach (array_reverse($others) as $other) {
             if ($other->getEnd() > $start) {
-                // we're doing this to maintain the original line indexes
+                // we're doing this to maintain the original line indices
                 $line->setContent($other->getContent().$line->getContent());
                 $other->remove();
             }

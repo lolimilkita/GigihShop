@@ -86,7 +86,7 @@ class Foo {
      * {@inheritdoc}
      *
      * Must run before NoEmptyPhpdocFixer, PhpdocAlignFixer, VoidReturnFixer.
-     * Must run after AlignMultilineCommentFixer, CommentToPhpdocFixer, FullyQualifiedStrictTypesFixer, PhpdocAddMissingParamAnnotationFixer, PhpdocIndentFixer, PhpdocReturnSelfReferenceFixer, PhpdocScalarFixer, PhpdocToCommentFixer, PhpdocToParamTypeFixer, PhpdocToPropertyTypeFixer, PhpdocToReturnTypeFixer, PhpdocTypesFixer.
+     * Must run after AlignMultilineCommentFixer, CommentToPhpdocFixer, FullyQualifiedStrictTypesFixer, PhpdocAddMissingParamAnnotationFixer, PhpdocIndentFixer, PhpdocLineSpanFixer, PhpdocReturnSelfReferenceFixer, PhpdocScalarFixer, PhpdocToCommentFixer, PhpdocToParamTypeFixer, PhpdocToPropertyTypeFixer, PhpdocToReturnTypeFixer, PhpdocTypesFixer.
      */
     public function getPriority(): int
     {
@@ -107,7 +107,6 @@ class Foo {
     protected function applyFix(\SplFileInfo $file, Tokens $tokens): void
     {
         $namespaceUseAnalyzer = new NamespaceUsesAnalyzer();
-
         $shortNames = [];
 
         foreach ($namespaceUseAnalyzer->getDeclarationsFromTokens($tokens) as $namespaceUseAnalysis) {
@@ -387,7 +386,7 @@ class Foo {
         while (true) {
             $type = '';
 
-            while ($tokens[$index]->isGivenKind([T_NS_SEPARATOR, T_STATIC, T_STRING, CT::T_ARRAY_TYPEHINT, T_CALLABLE, CT::T_TYPE_INTERSECTION])) {
+            while ($tokens[$index]->isGivenKind([T_NS_SEPARATOR, T_STATIC, T_STRING, CT::T_ARRAY_TYPEHINT, T_CALLABLE])) {
                 $type .= $tokens[$index]->getContent();
                 $index = $tokens->getNextMeaningfulToken($index);
             }
@@ -398,7 +397,7 @@ class Foo {
 
             $types[] = $type;
 
-            if (!$tokens[$index]->isGivenKind(CT::T_TYPE_ALTERNATION)) {
+            if (!$tokens[$index]->isGivenKind([CT::T_TYPE_ALTERNATION, CT::T_TYPE_INTERSECTION])) {
                 break;
             }
 
@@ -417,7 +416,7 @@ class Foo {
     private function annotationIsSuperfluous(Annotation $annotation, array $info, array $symbolShortNames): bool
     {
         if ('param' === $annotation->getTag()->getName()) {
-            $regex = '/@param\s+(?:\S|\s(?!\$))++\s\$\S+\s+\S/';
+            $regex = '/@param\s+[^\$]+\s(?:\&\s*)?(?:\.{3}\s*)?\$\S+\s+\S/';
         } elseif ('var' === $annotation->getTag()->getName()) {
             $regex = '/@var\s+\S+(\s+\$\S+)?(\s+)(?!\*+\/)([^$\s]+)/';
         } else {

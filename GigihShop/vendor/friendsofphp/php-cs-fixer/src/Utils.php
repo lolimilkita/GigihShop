@@ -29,7 +29,7 @@ final class Utils
     /**
      * @var array<string,true>
      */
-    private static $deprecations = [];
+    private static array $deprecations = [];
 
     private function __construct()
     {
@@ -41,7 +41,7 @@ final class Utils
      */
     public static function camelCaseToUnderscore(string $string): string
     {
-        return strtolower(Preg::replace('/(?<!^)((?=[A-Z][^A-Z])|(?<![A-Z])(?=[A-Z]))/', '_', $string));
+        return mb_strtolower(Preg::replace('/(?<!^)((?=[\p{Lu}][^\p{Lu}])|(?<![\p{Lu}])(?=[\p{Lu}]))/', '_', $string));
     }
 
     /**
@@ -130,7 +130,7 @@ final class Utils
      */
     public static function naturalLanguageJoinWithBackticks(array $names): string
     {
-        if (empty($names)) {
+        if (0 === \count($names)) {
             throw new \InvalidArgumentException('Array of names cannot be empty.');
         }
 

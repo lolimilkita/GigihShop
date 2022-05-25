@@ -38,17 +38,13 @@ final class Token
 
     /**
      * If token prototype is an array.
-     *
-     * @var bool
      */
-    private $isArray;
+    private bool $isArray;
 
     /**
      * Flag is token was changed.
-     *
-     * @var bool
      */
-    private $changed = false;
+    private bool $changed = false;
 
     /**
      * @param array|string $token token prototype
@@ -59,14 +55,14 @@ final class Token
             if (!\is_int($token[0])) {
                 throw new \InvalidArgumentException(sprintf(
                     'Id must be an int, got "%s".',
-                    \is_object($token[0]) ? \get_class($token[0]) : \gettype($token[0])
+                    get_debug_type($token[0])
                 ));
             }
 
             if (!\is_string($token[1])) {
                 throw new \InvalidArgumentException(sprintf(
                     'Content must be a string, got "%s".',
-                    \is_object($token[1]) ? \get_class($token[1]) : \gettype($token[1])
+                    get_debug_type($token[1])
                 ));
             }
 
@@ -81,11 +77,7 @@ final class Token
             $this->isArray = false;
             $this->content = $token;
         } else {
-            throw new \InvalidArgumentException(sprintf(
-                'Cannot recognize input value as valid Token prototype, got "%s".',
-                // @phpstan-ignore-next-line due to lack of strong typing of method parameter
-                \is_object($token) ? \get_class($token) : \gettype($token)
-            ));
+            throw new \InvalidArgumentException(sprintf('Cannot recognize input value as valid Token prototype, got "%s".', get_debug_type($token)));
         }
     }
 
@@ -106,7 +98,15 @@ final class Token
      */
     public static function getClassyTokenKinds(): array
     {
-        static $classTokens = [T_CLASS, T_TRAIT, T_INTERFACE];
+        static $classTokens;
+
+        if (null === $classTokens) {
+            $classTokens = [T_CLASS, T_TRAIT, T_INTERFACE];
+
+            if (\defined('T_ENUM')) { // @TODO: drop condition when PHP 8.1+ is required
+                $classTokens[] = T_ENUM;
+            }
+        }
 
         return $classTokens;
     }
@@ -140,6 +140,15 @@ final class Token
      */
     public function equals($other, bool $caseSensitive = true): bool
     {
+        if (\defined('T_AMPERSAND_FOLLOWED_BY_VAR_OR_VARARG')) { // @TODO: drop condition with new MAJOR release 4.0
+            if ('&' === $other) {
+                return '&' === $this->content && (null === $this->id || $this->isGivenKind([T_AMPERSAND_FOLLOWED_BY_VAR_OR_VARARG, T_AMPERSAND_NOT_FOLLOWED_BY_VAR_OR_VARARG]));
+            }
+            if (null === $this->id && '&' === $this->content) {
+                return $other instanceof self && '&' === $other->content && (null === $other->id || $other->isGivenKind([T_AMPERSAND_FOLLOWED_BY_VAR_OR_VARARG, T_AMPERSAND_NOT_FOLLOWED_BY_VAR_OR_VARARG]));
+            }
+        }
+
         if ($other instanceof self) {
             // Inlined getPrototype() on this very hot path.
             // We access the private properties of $other directly to save function call overhead.
@@ -361,7 +370,7 @@ final class Token
     }
 
     /**
-     * Check if token is one of classy tokens: T_CLASS, T_INTERFACE or T_TRAIT.
+     * Check if token is one of classy tokens: T_CLASS, T_INTERFACE, T_TRAIT or T_ENUM.
      */
     public function isClassy(): bool
     {

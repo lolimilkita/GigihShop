@@ -17,6 +17,8 @@ namespace Nexus\CsConfig\Ruleset;
  * Ruleset for `Nexus` group.
  *
  * @internal
+ *
+ * @deprecated v3.4.0
  */
 final class Nexus73 extends AbstractRuleset
 {
@@ -79,6 +81,7 @@ final class Nexus73 extends AbstractRuleset
                 'single_line' => true,
                 'space_before_parenthesis' => true,
             ],
+            'class_reference_name_casing' => true,
             'clean_namespace' => true,
             'combine_consecutive_issets' => true,
             'combine_consecutive_unsets' => true,
@@ -163,6 +166,7 @@ final class Nexus73 extends AbstractRuleset
                 'fix_inline' => true,
                 'replacements' => ['inheritDocs' => 'inheritDoc'],
             ],
+            'get_class_to_class_keyword' => false,
             'global_namespace_import' => [
                 'import_classes' => false,
                 'import_constants' => false,
@@ -285,6 +289,7 @@ final class Nexus73 extends AbstractRuleset
             ],
             'no_unneeded_curly_braces' => ['namespaces' => true],
             'no_unneeded_final_method' => ['private_methods' => true],
+            'no_unneeded_import_alias' => true,
             'no_unreachable_default_argument_value' => true,
             'no_unset_cast' => true,
             'no_unset_on_property' => false,

@@ -37,20 +37,17 @@ use Symfony\Component\Finder\SplFileInfo;
  */
 final class FixerFactory
 {
-    /**
-     * @var FixerNameValidator
-     */
-    private $nameValidator;
+    private FixerNameValidator $nameValidator;
 
     /**
      * @var FixerInterface[]
      */
-    private $fixers = [];
+    private array $fixers = [];
 
     /**
      * @var FixerInterface[] Associative array of fixers with names as keys
      */
-    private $fixersByName = [];
+    private array $fixersByName = [];
 
     public function __construct()
     {
@@ -172,8 +169,8 @@ final class FixerFactory
 
             $fixers[] = $fixer;
             $fixersByName[$name] = $fixer;
-
             $conflicts = array_intersect($this->getFixersConflicts($fixer), $fixerNames);
+
             if (\count($conflicts) > 0) {
                 $fixerConflicts[$name] = $conflicts;
             }
@@ -219,6 +216,7 @@ final class FixerFactory
     {
         $message = 'Rule contains conflicting fixers:';
         $report = [];
+
         foreach ($fixerConflicts as $fixer => $fixers) {
             // filter mutual conflicts
             $report[$fixer] = array_filter(

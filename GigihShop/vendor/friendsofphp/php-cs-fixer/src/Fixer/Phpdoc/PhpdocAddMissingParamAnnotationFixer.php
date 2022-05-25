@@ -82,7 +82,7 @@ function f9(string $foo, $bar, $baz) {}
     /**
      * {@inheritdoc}
      *
-     * Must run before NoEmptyPhpdocFixer, NoSuperfluousPhpdocTagsFixer, PhpdocAlignFixer, PhpdocAlignFixer, PhpdocOrderFixer.
+     * Must run before NoEmptyPhpdocFixer, NoSuperfluousPhpdocTagsFixer, PhpdocAlignFixer, PhpdocOrderFixer.
      * Must run after AlignMultilineCommentFixer, CommentToPhpdocFixer, GeneralPhpdocTagRenameFixer, PhpdocIndentFixer, PhpdocNoAliasTagFixer, PhpdocScalarFixer, PhpdocToCommentFixer, PhpdocTypesFixer.
      */
     public function getPriority(): int
@@ -258,7 +258,7 @@ function f9(string $foo, $bar, $baz) {}
 
             if ($sawName) {
                 $info['default'] .= $token->getContent();
-            } elseif ('&' !== $token->getContent()) {
+            } elseif (!$token->equals('&')) {
                 if ($token->isGivenKind(T_ELLIPSIS)) {
                     if ('' === $info['type']) {
                         $info['type'] = 'array';

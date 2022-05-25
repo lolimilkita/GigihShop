@@ -3,6 +3,166 @@ CHANGELOG for PHP CS Fixer
 
 This file contains changelogs for stable releases only.
 
+Changelog for v3.8.0
+--------------------
+
+* bug #6322 PhpdocTypesFixer - fix recognizing callable (kubawerlos)
+* bug #6331 ClassReferenceNameCasingFixer - Fix false hits (SpacePossum)
+* bug #6333 BinaryOperatorSpacesFixer - Fix for alignment in `elseif` (paulbalandan, SpacePossum)
+* bug #6337 PhpdocTypesFixer - fix recognising callable without return type (kubawerlos)
+* feature #6286 DateTimeCreateFromFormatCallFixer - Introduction (liquid207)
+* feature #6312 TypesSpacesFixer - add option for CS of catching multiple types of exceptions (SpacePossum)
+* minor #6326 Bump migration sets used to PHP7.4 (SpacePossum)
+* minor #6328 DX: .gitignore ASC file (keradus)
+
+Changelog for v3.7.0
+--------------------
+
+* bug #6112 [BinaryOperatorSpacesFixer] Fix align of `=` inside calls of methods (VincentLanglet)
+* bug #6279 ClassReferenceNameCasingFixer - Fix for double arrow (SpacePossum)
+* bug #6280 Fix bunch of enum issus (SpacePossum)
+* bug #6283 ClassReferenceNameCasingFixer - detect imports (SpacePossum)
+* feature #5892 NewWithBracesFixer - option to remove braces (jrmajor)
+* feature #6081 Allow multiline constructor arguments in an anonymous classes (jrmajor, SpacePossum)
+* feature #6274 SingleLineCommentSpacingFixer - Introduction (SpacePossum)
+* feature #6300 OrderedClassElementsFixer - handle enums (gharlan)
+* feature #6304 NoTrailingCommaInSinglelineFunctionCallFixer - Introduction (SpacePossum)
+* minor #6277 Add `is_scalar`, `sizeof`, `ini_get` in list of compiled functions (jderusse)
+* minor #6284 ClassReferenceNameCasingFixer - Update doc (SpacePossum)
+* minor #6289 PHP7.4 - clean up tests (SpacePossum)
+* minor #6290 PHP7.4 - properties types (SpacePossum)
+* minor #6291 PHP7.4 - remove run time checks (SpacePossum)
+* minor #6292 PhpUnitDedicateAssertFixer - Fix more count cases (SpacePossum)
+* minor #6294 PhpUnitDedicateAssertFixer - add assertInstanceOf support (SpacePossum)
+* minor #6295 PhpUnitTestCaseIndicator - Check if PHPUnit-test class extends anothe… (SpacePossum)
+* minor #6298 Fix checkbashisms download ans SCA violations (SpacePossum)
+* minor #6301 BracesFixer - handle enums (gharlan)
+* minor #6302 Bump checkbashisms version (kubawerlos)
+* minor #6303 PHP8 - Utilize "get_debug_type" (SpacePossum)
+* minor #6316 bump xdebug-handler (SpacePossum)
+* minor #6327 bump polyfills (SpacePossum)
+
+Changelog for v3.6.0
+--------------------
+
+* bug #6063 PhpdocTypesOrderFixer - Improve nested types support (ruudk, julienfalque)
+* bug #6197 FullyQualifiedStrictTypesFixer - fix same classname is imported from … (SpacePossum)
+* bug #6241 NoSuperfluousPhpdocTagsFixer - fix for reference and splat operator (kubawerlos)
+* bug #6243 PhpdocTypesOrderFixer - fix for intersection types (kubawerlos)
+* bug #6254 PhpUnitDedicateAssertFixer - remove `is_resource`. (drupol)
+* bug #6264 TokensAnalyzer - fix isConstantInvocation detection for mulitple exce… (SpacePossum)
+* bug #6265 NullableTypeDeclarationForDefaultNullValueFixer - handle "readonly" a… (SpacePossum)
+* bug #6266 SimplifiedIfReturnFixer - handle statement in loop without braces (SpacePossum)
+* feature #6262 ClassReferenceNameCasingFixer - introduction (SpacePossum)
+* feature #6267 NoUnneededImportAliasFixer - Introduction (SpacePossum)
+* minor #6199 HeaderCommentFixer - support monolithic files with shebang (kubawerlos, keradus)
+* minor #6231 Fix priority descriptions and tests. (SpacePossum)
+* minor #6237 DX: Application - better display version when displaying gitSha (keradus)
+* minor #6242 Annotation - improve on recognising types with reference and splat operator (kubawerlos)
+* minor #6250 Tokens - optimize cache clear (SpacePossum)
+* minor #6269 Docs: redo warnings in RST docs to fix issue on website docs (keradus)
+* minor #6270 ClassReferenceNameCasingFixer - Add missing test cases for catch (SpacePossum)
+* minor #6273 Add priority test (SpacePossum)
+
+Changelog for v3.5.0
+--------------------
+
+* bug #6058 Fix `Tokens::insertSlices` not moving around all affected tokens (paulbalandan, SpacePossum)
+* bug #6160 NonPrintableCharacterFixer - fix for when removing non-printable character break PHP syntax (kubawerlos)
+* bug #6165 DeclareEqualNormalizeFixer - fix for declare having multiple directives (kubawerlos)
+* bug #6170 NonPrintableCharacterFixer - fix for string in single quotes, having non-breaking space, linebreak, and single quote inside (kubawerlos)
+* bug #6181 UseTransformer - Trait import in enum fix (PHP8.1) (SpacePossum)
+* bug #6188 PhpdocTo(Param|Property|Return)TypeFixer - fix for type intersections (kubawerlos)
+* bug #6202 SquareBraceTransformer - fix for destructing square brace after double arrow (kubawerlos)
+* bug #6209 OrderedClassElementsFixer - PHP8.0 support abstract private methods in traits (SpacePossum)
+* bug #6224 ArgumentsAnalyzer - support PHP8.1 readonly (SpacePossum)
+* feature #4571 BlankLineBeforeStatementFixer - can now add blank lines before doc-comments (addiks, SpacePossum)
+* feature #5953 GetClassToClassKeywordFixer - introduction (paulbalandan)
+* minor #6108 Drop support for Symfony v4 (keradus)
+* minor #6163 CI: update used PHP version (keradus)
+* minor #6167 SingleSpaceAfterConstructFixer - allow multiline const (y_ahiru, SpacePossum)
+* minor #6168 indexes -> indices (SpacePossum)
+* minor #6171 Fix tests and CS (SpacePossum)
+* minor #6172 DX: Tokens::insertSlices - groom code and fix tests (keradus)
+* minor #6174 PhpdocAlignFixer: fix property-read/property-write descriptions not getting aligned (antichris)
+* minor #6177 DX: chmod +x for benchmark.sh file (keradus)
+* minor #6180 gitlab reporter - add fixed severity to match format (cbourreau)
+* minor #6183 Simplify DiffConsoleFormatter (kubawerlos)
+* minor #6184 Do not support array of patterns in Preg methods (kubawerlos)
+* minor #6185 Upgrade PHPStan (kubawerlos)
+* minor #6189 Finder - fix usage of ignoreDotFiles (kubawerlos)
+* minor #6190 DX: DiffConsoleFormatter - escape - (keradus)
+* minor #6194 Update Docker setup (julienfalque)
+* minor #6196 clean ups (SpacePossum)
+* minor #6198 DX: format dot files (kubawerlos)
+* minor #6200 DX: Composer's branch-alias leftovers cleanup (kubawerlos)
+* minor #6203 Bump required PHP to 7.4 (keradus)
+* minor #6205 DX: bump PHPUnit to v9, PHPUnit bridge to v6 and Prophecy-PHPUnit to v2 (keradus)
+* minor #6210 NullableTypeDeclarationForDefaultNullValueFixer - fix tests (HypeMC)
+* minor #6212 bump year 2021 -> 2022 (SpacePossum)
+* minor #6215 DX: Doctrine\Annotation\Tokens - fix phpstan violations (keradus)
+* minor #6216 DX: Doctrine\Annotation\Tokens - drop unused methods (keradus)
+* minor #6217 DX: lock SCA tools for PR builds (keradus)
+* minor #6218 Use composer/xdebug-handler v3 (gharlan)
+* minor #6222 Show runtime on version command (SpacePossum)
+* minor #6229 Simplify Tokens::isMonolithicPhp tests (kubawerlos)
+* minor #6232 Use expectNotToPerformAssertions where applicable (SpacePossum)
+* minor #6233 Update Tokens::isMonolithicPhp (kubawerlos)
+* minor #6236 Annotation - improve getting variable name (kubawerlos)
+
+Changelog for v3.4.0
+--------------------
+
+* bug #6117 SingleSpaceAfterConstruct - handle before destructuring close brace (liquid207)
+* bug #6122 NoMultilineWhitespaceAroundDoubleArrowFixer - must run before MethodArgumentSpaceFixer (kubawerlos)
+* bug #6130 StrictParamFixer - must run before MethodArgumentSpaceFixer (kubawerlos)
+* bug #6137 NewWithBracesFixer - must run before ClassDefinitionFixer (kubawerlos)
+* bug #6139 PhpdocLineSpanFixer - must run before NoSuperfluousPhpdocTagsFixer (kubawerlos)
+* bug #6143 OperatorLinebreakFixer - fix for alternative syntax (kubawerlos)
+* bug #6159 ImportTransformer - fix for grouped constant and function imports (kubawerlos)
+* bug #6161 NoUnreachableDefaultArgumentValueFixer - fix for attributes (kubawerlos)
+* feature #5776 DX: test on PHP 8.1 (kubawerlos)
+* feature #6152 PHP8.1 support (SpacePossum)
+* minor #6095 Allow Symfony 6 (derrabus, keradus)
+* minor #6107 Drop support of PHPUnit v7 dependency (keradus)
+* minor #6109 Add return type to `DummyTestSplFileInfo::getRealPath()` (derrabus)
+* minor #6115 Remove PHP 7.2 polyfill (derrabus)
+* minor #6116 CI: remove installation of mbstring polyfill in build script, it's required dependency now (keradus)
+* minor #6119 OrderedClassElementsFixer - PHPUnit assert(Pre|Post)Conditions methods support (meyerbaptiste)
+* minor #6121 Use Tokens::ensureWhitespaceAtIndex to simplify code (kubawerlos)
+* minor #6127 Remove 2nd parameter to XdebugHandler constructor (phil-davis)
+* minor #6129 clean ups (SpacePossum)
+* minor #6138 PHP8.1 - toString cannot return type hint void (SpacePossum)
+* minor #6146 PHP 8.1: add new_in_initializers to PHP 8.1 integration test (keradus)
+* minor #6147 DX: update composer-normalize (keradus)
+* minor #6156 DX: drop hack for Prophecy incompatibility (keradus)
+
+Changelog for v3.3.1
+--------------------
+
+* minor #6067 Bump minimum PHP version to 7.2 (keradus)
+
+Changelog for v3.3.0
+--------------------
+
+* bug #6054 Utils - Add multibyte and UTF-8 support (paulbalandan)
+* bug #6061 ModernizeStrposFixer - fix for negated with leading slash (kubawerlos)
+* bug #6064 SquareBraceTransformer - fix detect array destructing in foreach (SpacePossum)
+* bug #6082 PhpUnitDedicateAssertFixer must run before NoUnusedImportsFixer (kubawerlos)
+* bug #6089 TokensAnalyzer.php - Fix T_ENCAPSED_AND_WHITESPACE handling in isBina… (SpacePossum)
+* feature #5123 PhpdocTypesFixer - support generic types (kubawerlos)
+* minor #5775 DX: run static code analysis on PHP 8.0 (kubawerlos)
+* minor #6050 DX: TypeIntersectionTransformer - prove to not touch T_AMPERSAND_FOLLOWED_BY_VAR_OR_VARARG (keradus)
+* minor #6051 NoExtraBlankLinesFixer - Improve deprecation message (paulbalandan)
+* minor #6060 DX: Add upgrade guide link when next Major is available (keradus)
+* minor #6066 Clean ups (SpacePossum, kubawerlos)
+* minor #6069 DX: cleanup stub file (keradus)
+* minor #6070 Update UPGRADE-v3.md with php_unit_test_annotation/case deprecation (kubawerlos)
+* minor #6072 Update usage doc to reflect change to PSR12 default. (hannob, keradus)
+* minor #6084 Change: Remove __constructor() from RuleSetDescriptionInterface (niklam)
+* minor #6085 Dx: reuse WhitespacesAnalyzer::detectIndent (kubawerlos)
+* minor #6087 AbstractProxyFixer - more tests (SpacePossum)
+
 Changelog for v3.2.1
 ---------------------
 
@@ -291,6 +451,11 @@ Changelog for v3.0.0
 * minor #5656 DX: mark some constants as internal or private (keradus)
 * minor #5657 DX: convert some properties to constants (keradus)
 * minor #5669 Remove TrailingCommaInMultilineArrayFixer (kubawerlos, keradus)
+
+Changelog for v2.19.3
+---------------------
+
+* minor #6060 DX: Add upgrade guide link when next Major is available (keradus)
 
 Changelog for v2.19.2
 ---------------------

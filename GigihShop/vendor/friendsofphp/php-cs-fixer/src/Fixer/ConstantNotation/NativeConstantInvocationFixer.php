@@ -38,12 +38,12 @@ final class NativeConstantInvocationFixer extends AbstractFixer implements Confi
     /**
      * @var array<string, true>
      */
-    private $constantsToEscape = [];
+    private array $constantsToEscape = [];
 
     /**
      * @var array<string, true>
      */
-    private $caseInsensitiveConstantsToEscape = [];
+    private array $caseInsensitiveConstantsToEscape = [];
 
     /**
      * {@inheritdoc}
@@ -131,7 +131,7 @@ namespace {
 
         $uniqueConfiguredExclude = array_unique($this->configuration['exclude']);
 
-        // Case sensitive constants handling
+        // Case-sensitive constants handling
         $constantsToEscape = array_values($this->configuration['include']);
 
         if (true === $this->configuration['fix_built_in']) {
@@ -147,7 +147,7 @@ namespace {
             $uniqueConfiguredExclude
         );
 
-        // Case insensitive constants handling
+        // Case-insensitive constants handling
         static $caseInsensitiveConstants = ['null', 'false', 'true'];
         $caseInsensitiveConstantsToEscape = [];
 
@@ -188,7 +188,7 @@ namespace {
         // 'scope' is 'namespaced' here
         /** @var NamespaceAnalysis $namespace */
         foreach (array_reverse($namespaces) as $namespace) {
-            if ('' === $namespace->getFullName()) {
+            if ($namespace->isGlobalNamespace()) {
                 continue;
             }
 
@@ -206,7 +206,7 @@ namespace {
                 if (!\is_string($constantName) || '' === trim($constantName) || trim($constantName) !== $constantName) {
                     throw new InvalidOptionsException(sprintf(
                         'Each element must be a non-empty, trimmed string, got "%s" instead.',
-                        \is_object($constantName) ? \get_class($constantName) : \gettype($constantName)
+                        get_debug_type($constantName)
                     ));
                 }
             }

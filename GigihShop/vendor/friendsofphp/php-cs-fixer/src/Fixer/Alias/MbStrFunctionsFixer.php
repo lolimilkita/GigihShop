@@ -30,7 +30,7 @@ final class MbStrFunctionsFixer extends AbstractFunctionReferenceFixer
     /**
      * @var array the list of the string-related function names and their mb_ equivalent
      */
-    private static $functionsMap = [
+    private static array $functionsMap = [
         'str_split' => ['alternativeName' => 'mb_str_split', 'argumentCount' => [1, 2, 3]],
         'stripos' => ['alternativeName' => 'mb_stripos', 'argumentCount' => [2, 3]],
         'stristr' => ['alternativeName' => 'mb_stristr', 'argumentCount' => [2, 3]],
@@ -58,7 +58,7 @@ final class MbStrFunctionsFixer extends AbstractFunctionReferenceFixer
         $this->functions = array_filter(
             self::$functionsMap,
             static function (array $mapping): bool {
-                return \function_exists($mapping['alternativeName']) && (new \ReflectionFunction($mapping['alternativeName']))->isInternal();
+                return (new \ReflectionFunction($mapping['alternativeName']))->isInternal();
             }
         );
     }

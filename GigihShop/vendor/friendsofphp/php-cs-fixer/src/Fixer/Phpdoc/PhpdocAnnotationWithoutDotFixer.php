@@ -31,7 +31,7 @@ final class PhpdocAnnotationWithoutDotFixer extends AbstractFixer
     /**
      * @var string[]
      */
-    private $tags = ['throws', 'return', 'param', 'internal', 'deprecated', 'var', 'type'];
+    private array $tags = ['throws', 'return', 'param', 'internal', 'deprecated', 'var', 'type'];
 
     /**
      * {@inheritdoc}
@@ -81,7 +81,7 @@ function foo ($bar) {}
             $doc = new DocBlock($token->getContent());
             $annotations = $doc->getAnnotations();
 
-            if (empty($annotations)) {
+            if (0 === \count($annotations)) {
                 continue;
             }
 
@@ -120,11 +120,7 @@ function foo ($bar) {}
                 $content = Preg::replaceCallback(
                     '/^(\s*\*\s*@\w+\s+'.$optionalTypeRegEx.')(\p{Lu}?(?=\p{Ll}|\p{Zs}))(.*)$/',
                     static function (array $matches): string {
-                        if (\function_exists('mb_strtolower')) {
-                            return $matches[1].mb_strtolower($matches[2]).$matches[3];
-                        }
-
-                        return $matches[1].strtolower($matches[2]).$matches[3];
+                        return $matches[1].mb_strtolower($matches[2]).$matches[3];
                     },
                     $startLine->getContent(),
                     1

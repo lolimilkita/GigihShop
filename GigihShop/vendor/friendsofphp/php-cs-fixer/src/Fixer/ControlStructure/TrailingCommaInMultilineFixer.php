@@ -112,10 +112,6 @@ SAMPLE
                 ->setAllowedTypes(['bool'])
                 ->setDefault(false)
                 ->setNormalizer(static function (Options $options, $value) {
-                    if (\PHP_VERSION_ID < 70300 && $value) {
-                        throw new InvalidOptionsForEnvException('"after_heredoc" option can only be enabled with PHP 7.3+.');
-                    }
-
                     return $value;
                 })
                 ->getOption(),
@@ -124,10 +120,6 @@ SAMPLE
                 ->setAllowedValues([new AllowedValueSubset([self::ELEMENTS_ARRAYS, self::ELEMENTS_ARGUMENTS, self::ELEMENTS_PARAMETERS])])
                 ->setDefault([self::ELEMENTS_ARRAYS])
                 ->setNormalizer(static function (Options $options, $value) {
-                    if (\PHP_VERSION_ID < 70300 && \in_array(self::ELEMENTS_ARGUMENTS, $value, true)) {
-                        throw new InvalidOptionsForEnvException(sprintf('"%s" option can only be enabled with PHP 7.3+.', self::ELEMENTS_ARGUMENTS));
-                    }
-
                     if (\PHP_VERSION_ID < 80000 && \in_array(self::ELEMENTS_PARAMETERS, $value, true)) {
                         throw new InvalidOptionsForEnvException(sprintf('"%s" option can only be enabled with PHP 8.0+.', self::ELEMENTS_PARAMETERS));
                     }
@@ -146,8 +138,6 @@ SAMPLE
         $fixArrays = \in_array(self::ELEMENTS_ARRAYS, $this->configuration['elements'], true);
         $fixArguments = \in_array(self::ELEMENTS_ARGUMENTS, $this->configuration['elements'], true);
         $fixParameters = \in_array(self::ELEMENTS_PARAMETERS, $this->configuration['elements'], true);
-
-        $tokensAnalyzer = new TokensAnalyzer($tokens);
 
         for ($index = $tokens->count() - 1; $index >= 0; --$index) {
             $prevIndex = $tokens->getPrevMeaningfulToken($index);
@@ -194,6 +184,7 @@ SAMPLE
     private function fixBlock(Tokens $tokens, int $startIndex): void
     {
         $tokensAnalyzer = new TokensAnalyzer($tokens);
+
         if (!$tokensAnalyzer->isBlockMultiline($tokens, $startIndex)) {
             return;
         }
