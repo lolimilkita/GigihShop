@@ -27,53 +27,55 @@
 
 </div>
 <div class="bg-white mb-5 p-5">
-    <h4 class="text-center mb-5">Material Kami Pilih Hanya Yang Terbaik</h4>
-
-    <div class="row">
-      <div class="col-lg-3 mb-3">
-          <div class="card border-0" id="cardHomeM">
-                <img src="/img/barang/Tanah-Semi-Padas-Atau-Tanah-Liat.jpg" id="imgHomeM">
-                <div class="card-body" id="cardTrans">
-                    <h5 class="card-title" style="color: white;">Tanah Semi-Padas Dari Purworejo</h5>
-                </div>
-                <div class="card-img-overlay">
-                    <a href="/barang/detail/15" id="home"></a>
-                </div>
-          </div>
-      </div>
-      <div class="col-lg-3 mb-3">
-          <div class="card border-0" id="cardHomeM">
-                <img src="/img/barang/batu-koral-lava-volcano.jpg" id="imgHomeM">
-                <div class="card-body" id="cardTrans">
-                    <h5 class="card-title" style="color: white;">Batu koral lava volcano</h5>
-                </div>
-                <div class="card-img-overlay">
-                    <a href="/barang/detail/2" id="home"></a>
-                </div>
-          </div>
-      </div>
-      <div class="col-lg-3 mb-3">
-          <div class="card border-0" id="cardHomeM">
-              <img src="/img/barang/HTB1PBbAX6DuK1Rjy1zjq6zraFXaG.jpg" id="imgHomeM">
-              <div class="card-body" id="cardTrans">
-                  <h5 class="card-title" style="color: white;">Batu Alam Ukuran Besar</h5>
+    <div class="container">
+        <h4 class="text-center mb-5">Material Kami Pilih Hanya Yang Terbaik</h4>
+    
+        <div class="row">
+          <div class="col-lg-3 mb-3">
+              <div class="card border-0" id="cardHomeM">
+                    <img src="/img/barang/Tanah-Semi-Padas-Atau-Tanah-Liat.jpg" id="imgHomeM">
+                    <div class="card-body" id="cardTrans">
+                        <h5 class="card-title" style="color: white;">Tanah Semi-Padas Dari Purworejo</h5>
+                    </div>
+                    <div class="card-img-overlay">
+                        <a href="/barang/detail/15" id="home"></a>
+                    </div>
               </div>
-              <div class="card-img-overlay">
-                    <a href="/barang/detail/6" id="home"></a>
-                </div>
           </div>
-      </div>
-      <div class="col-lg-3 mb-3">
-          <div class="card border-0" id="cardHomeM">
-              <img src="/img/barang/Pasir-Sungai.jpg" id="imgHomeM">
-              <div class="card-body" id="cardTrans">
-                  <h5 class="card-title" style="color: white;">Pasir Sungai</h5>
+          <div class="col-lg-3 mb-3">
+              <div class="card border-0" id="cardHomeM">
+                    <img src="/img/barang/batu-koral-lava-volcano.jpg" id="imgHomeM">
+                    <div class="card-body" id="cardTrans">
+                        <h5 class="card-title" style="color: white;">Batu koral lava volcano</h5>
+                    </div>
+                    <div class="card-img-overlay">
+                        <a href="/barang/detail/2" id="home"></a>
+                    </div>
               </div>
-              <div class="card-img-overlay">
-                    <a href="/barang/detail/8" id="home"></a>
-                </div>
           </div>
-      </div>
+          <div class="col-lg-3 mb-3">
+              <div class="card border-0" id="cardHomeM">
+                  <img src="/img/barang/HTB1PBbAX6DuK1Rjy1zjq6zraFXaG.jpg" id="imgHomeM">
+                  <div class="card-body" id="cardTrans">
+                      <h5 class="card-title" style="color: white;">Batu Alam Ukuran Besar</h5>
+                  </div>
+                  <div class="card-img-overlay">
+                        <a href="/barang/detail/6" id="home"></a>
+                    </div>
+              </div>
+          </div>
+          <div class="col-lg-3 mb-3">
+              <div class="card border-0" id="cardHomeM">
+                  <img src="/img/barang/Pasir-Sungai.jpg" id="imgHomeM">
+                  <div class="card-body" id="cardTrans">
+                      <h5 class="card-title" style="color: white;">Pasir Sungai</h5>
+                  </div>
+                  <div class="card-img-overlay">
+                        <a href="/barang/detail/8" id="home"></a>
+                    </div>
+              </div>
+          </div>
+        </div>
     </div>
 </div>
 
