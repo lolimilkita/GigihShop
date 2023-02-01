@@ -54,7 +54,10 @@ class AuthController extends Controller
         // Set a return URL if none is specified
         $_SESSION['redirect_url'] = session('redirect_url') ?? previous_url() ?? site_url('/');
 
-		return $this->_render($this->config->views['login'], ['config' => $this->config, 'title' => 'Login']);
+		return $this->_render($this->config->views['login'], [
+			'config' => $this->config,
+			'title' => 'Login'
+		]);
 	}
 
 	/**
@@ -136,7 +139,10 @@ class AuthController extends Controller
 			return redirect()->back()->withInput()->with('error', lang('Auth.registerDisabled'));
 		}
 
-		return $this->_render($this->config->views['register'], ['config' => $this->config, 'title' => 'Register']);
+		return $this->_render($this->config->views['register'], [
+			'config' => $this->config,
+			'title' => 'Register'
+		]);
 	}
 
 	/**
@@ -222,7 +228,10 @@ class AuthController extends Controller
 			return redirect()->route('login')->with('error', lang('Auth.forgotDisabled'));
 		}
 
-		return $this->_render($this->config->views['forgot'], ['config' => $this->config]);
+		return $this->_render($this->config->views['forgot'], [
+			'config' => $this->config,
+			'title' => 'Lupa Password'
+		]);
 	}
 
 	/**
@@ -275,6 +284,7 @@ class AuthController extends Controller
 		return $this->_render($this->config->views['reset'], [
 			'config' => $this->config,
 			'token'  => $token,
+			'title' => 'Token Reset Password',
 		]);
 	}
 

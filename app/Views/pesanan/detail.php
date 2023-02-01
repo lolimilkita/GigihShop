@@ -58,7 +58,7 @@
                                         <th>Status</th>
                                         <td>
                                             <?php 
-                                                switch ($p['status']) {
+                                                switch ($pesanan[0]['status']) {
                                                     case 0:
                                                         echo ('Proses negosiasi');
                                                         break;
@@ -173,10 +173,11 @@
                           <td colspan="2" class="fw-bold">Total harga</td>
                           <td>
                               <?php
-                                  for($x = 0; $x < count($detail); $x++) {
-                                      $hargaTotal += $detail[$x]['harga_dipilih'];
-                                  }
-                                  echo rupiah($hargaTotal);
+                                $hargaTotal = 0;
+                                for ($x = 0; $x < count($detail); $x++) {
+                                    $hargaTotal += $detail[$x]['harga_dipilih'];
+                                }
+                                echo rupiah($hargaTotal);
                               ?>
                           </td>
                       </tfoot>

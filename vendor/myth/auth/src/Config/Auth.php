@@ -149,7 +149,7 @@ class Auth extends BaseConfig
 	 * @var string|null Name of the ActivatorInterface class
 	 */
 	// public $requireActivation = 'Myth\Auth\Authentication\Activators\EmailActivator';
-	public $requireActivation = false;
+	public $requireActivation = null;
 
 	/**
 	 * --------------------------------------------------------------------
