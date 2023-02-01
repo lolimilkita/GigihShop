@@ -33,8 +33,9 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Pages::index');
 
-$routes->group('admin', ['filter' => 'role:admin'], static function ($routes) {
+$routes->group('', ['filter' => 'role:admin'], static function ($routes) {
     $routes->get('/admin', 'Admin::index');
+    $routes->get('/admin/index', 'Admin::index');
     
     $routes->get('/admin/barangdetail/(:num)', 'Admin::barangdetail/$1');
     $routes->delete('/admin/barangdelete/(:num)', 'Admin::barangdelete/$1');
@@ -61,7 +62,7 @@ $routes->group('admin', ['filter' => 'role:admin'], static function ($routes) {
     $routes->get('/admin/pesananupdate/(:num)', 'Admin::pesananupdate/$1');
 });
 
-$routes->group('admin', ['filter' => 'role:user'], static function ($routes) {
+$routes->group('', ['filter' => 'role:user'], static function ($routes) {
     $routes->get('/pesanan', 'Pesanan::index');
     $routes->get('/pesanan/index', 'Pesanan::index');
     $routes->get('/pesanan/pesanan', 'Pesanan::pesanan');

@@ -105,26 +105,24 @@
                             <?php endforeach; ?>
                         </tbody>
                         <tfoot>
-                            <th scope="row"></th>
-                            <td colspan="2" class="fw-bold">Total harga</td>
-                            <td>
-                                <?php
-                                    for($x = 0; $x < count($keranjang); $x++) {
-                                        $hargaTotal += $keranjang[$x]['harga_dipilih'];
-                                    }
-                                    echo rupiah($hargaTotal);
-                                ?>
-                            </td>
-                            <td>
-                                <?php 
-                                    if($keranjang == null){
-                                        echo ('keranjang kosong');
-                                    } else {
-                                        echo ('<a href="/pesanan/pesanan" class="btn btn-primary text-nowrap">lanjut Pesanan</a>');
-                                    }
-                                ?>
-                                
-                            </td>
+                            <?php if($keranjang == null) : ?>
+                                <h5 class="text-center mb-3">Keranjang Kosong</h5>
+                            <?php else : ?>
+                                <th scope="row"></th>
+                                <td colspan="2" class="fw-bold">Total harga</td>
+                                <td>
+                                    <?php
+                                        $hargaTotal = 0;
+                                        for($x = 0; $x < count($keranjang); $x++) {
+                                            $hargaTotal += $keranjang[$x]['harga_dipilih'];
+                                        }
+                                        echo rupiah($hargaTotal);
+                                    ?>
+                                </td>
+                                <td>
+                                    <a href="/pesanan/pesanan" class="btn btn-primary text-nowrap">lanjut Pesanan</a>
+                                </td>
+                            <?php endif; ?>
                         </tfoot>
                     </table>
                 </div>
