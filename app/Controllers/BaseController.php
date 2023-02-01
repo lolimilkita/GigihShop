@@ -27,7 +27,7 @@ class BaseController extends Controller
      *
      * @var CLIRequest|IncomingRequest
      */
-    protected $request;
+    protected $request, $barangModel, $bannerModel, $keranjangModel, $userId, $jmlKeranjang;
 
     /**
      * An array of helpers to be loaded automatically upon
@@ -51,7 +51,7 @@ class BaseController extends Controller
         // E.g.: $this->session = \Config\Services::session();
         session();
         $this->keranjangModel = new KeranjangModel();
-        $this->userId = user()->id;
+        $this->userId = user_id();
         $keranjang = $this->keranjangModel->where('users_id', $this->userId)->findAll();
         $this->jmlKeranjang = count($keranjang);
     }
