@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/u1573602/gigihshop/
+    - /bin/cp -R app $DEPLOYPATH
