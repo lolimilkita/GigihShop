@@ -82,7 +82,11 @@ class Keranjang extends BaseController
 
     public function detail($id)
     {
-        $keranjang = $this->keranjangModel->getKeranjang($id);
+        $keranjang = $this->keranjangModel->where('users_id', $this->userId)->getKeranjang($id);
+
+        if ($keranjang["users_id"] != $this->userId){
+            throw new \Exception('Bukan barang Punya Anda!');
+        }
 
         $data = [
             'title' => 'Detail Barang Keranjang',

@@ -124,7 +124,15 @@ class Pesanan extends BaseController
     {
         session()->set('jml_keranjang', $this->jmlKeranjang);
 
+        // return user_id();
+
+        $query = array('users_id' => $this->userId, 'pesanan_id' => $id);
+        
         $pesanan = $this->pesananModel->where('pesanan_id', $id)->findAll();
+
+        if ($pesanan[0]["users_id"] != $this->userId) {
+            throw new \Exception('Pesanan Bukan Punya Anda!');
+        }
 
         $detail = $this->pesananDetailModel->where('pesanan_id', $id)->findAll();
 
