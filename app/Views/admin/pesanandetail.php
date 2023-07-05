@@ -145,6 +145,7 @@
                         <td colspan="2" class="fw-bold">Total harga</td>
                         <td>
                             <?php
+                            $hargaTotal = 0;
                             for ($x = 0; $x < count($detail); $x++) {
                                 $hargaTotal += $detail[$x]['harga_dipilih'];
                             }
