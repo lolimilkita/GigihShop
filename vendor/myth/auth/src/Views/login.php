@@ -13,7 +13,7 @@
 				</div>
 
 				<div class="card border-0" id="cardInputLogin">
-					<h2 class="card-header" id="cardHeaderLogin"><?=lang('Auth.loginTitle')?></h2>
+					<h2 class="card-header" id="cardHeaderLogin"><?= lang('Auth.loginTitle') ?></h2>
 					<div class="card-body">
 
 						<?= view('Myth\Auth\Views\_message_block') ?>
@@ -21,20 +21,18 @@
 						<form action="<?= route_to('login') ?>" method="post">
 							<?= csrf_field() ?>
 
-							<?php if ($config->validFields === ['email']): ?>
+							<?php if ($config->validFields === ['email']) : ?>
 								<div class="form-group">
-									<label for="login"><?=lang('Auth.email')?></label>
-									<input type="email" class="form-control <?php if(session('errors.login')) : ?>is-invalid<?php endif ?>"
-										name="login" placeholder="<?=lang('Auth.email')?>">
+									<label for="login"><?= lang('Auth.email') ?></label>
+									<input type="email" class="form-control <?php if (session('errors.login')) : ?>is-invalid<?php endif ?>" name="login" placeholder="<?= lang('Auth.email') ?>">
 									<div class="invalid-feedback">
 										<?= session('errors.login') ?>
 									</div>
 								</div>
-							<?php else: ?>
+							<?php else : ?>
 								<div class="form-group">
 									<label for="login">Email atau Username</label>
-									<input type="text" class="form-control <?php if(session('errors.login')) : ?>is-invalid<?php endif ?>"
-										name="login" placeholder="Email atau Username">
+									<input type="text" class="form-control <?php if (session('errors.login')) : ?>is-invalid<?php endif ?>" name="login" placeholder="Email atau Username">
 									<div class="invalid-feedback">
 										<?= session('errors.login') ?>
 									</div>
@@ -42,18 +40,18 @@
 							<?php endif; ?>
 
 							<div class="form-group">
-								<label for="password"><?=lang('Auth.password')?></label>
-								<input type="password" name="password" class="form-control  <?php if(session('errors.password')) : ?>is-invalid<?php endif ?>" placeholder="<?=lang('Auth.password')?>">
+								<label for="password"><?= lang('Auth.password') ?></label>
+								<input type="password" name="password" class="form-control  <?php if (session('errors.password')) : ?>is-invalid<?php endif ?>" placeholder="<?= lang('Auth.password') ?>">
 								<div class="invalid-feedback">
 									<?= session('errors.password') ?>
 								</div>
 							</div>
 
-							<?php if ($config->allowRemembering): ?>
+							<?php if ($config->allowRemembering) : ?>
 								<div class="form-check">
 									<label class="form-check-label">
-										<input type="checkbox" name="remember" class="form-check-input" <?php if(old('remember')) : ?> checked <?php endif ?>>
-										<?=lang('Auth.rememberMe')?>
+										<input type="checkbox" name="remember" class="form-check-input" <?php if (old('remember')) : ?> checked <?php endif ?>>
+										<?= lang('Auth.rememberMe') ?>
 									</label>
 								</div>
 							<?php endif; ?>
@@ -71,7 +69,7 @@
 
 						<hr>
 
-						<?php if ($config->activeResetter): ?>
+						<?php if ($config->activeResetter) : ?>
 							<p><a href="<?= route_to('forgot') ?>">Lupa Password?</a></p>
 						<?php endif; ?>
 					</div>
